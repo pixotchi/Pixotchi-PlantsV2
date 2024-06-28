@@ -23,6 +23,8 @@ import "@openzeppelin/contracts/utils/Base64.sol";
 import"../IPixotchi.sol";
 
 contract Renderer is IRenderer {
+    uint256 private constant LEVELS_PER_IMAGE = 10;
+    uint256 private constant MAX_IMAGE_LEVEL = 22;
 
     constructor() {
     }
@@ -59,9 +61,24 @@ contract Renderer is IRenderer {
         ));
     }
 
-    function getImageUri(uint256 _level, string calldata ipfsHash) public pure returns (string memory) {
-        return append('ipfs://', ipfsHash, '/', string(abi.encodePacked(Strings.toString((_level-1)), '.svg')), '"}');
+    /// @notice Calculates the image level based on the plant level
+    /// @param _level The level of the plant
+    /// @return The calculated image level
+    function calculateImageLevel(uint256 _level) public pure returns (uint256) {
+        if (_level == 0) return 0; // Handle potential edge case
+        uint256 imageLevel = (_level - 1) / LEVELS_PER_IMAGE;
+        return imageLevel > MAX_IMAGE_LEVEL ? MAX_IMAGE_LEVEL : imageLevel;
     }
+
+    /// @notice Generates the image URI for a given level and IPFS hash
+    /// @param _level The level of the plant
+    /// @param ipfsHash The IPFS hash for the image
+    /// @return The complete image URI
+    function getImageUri(uint256 _level, string calldata ipfsHash) public pure returns (string memory) {
+        uint256 imageLevel = calculateImageLevel(_level);
+        return append('ipfs://', ipfsHash, '/', string(abi.encodePacked(Strings.toString(imageLevel), '.svg')), '"}');
+    }
+
     function append(string memory a, string memory b, string memory c, string memory d, string memory e) internal pure returns (string memory) {
         return string(abi.encodePacked(a, b, c, d, e));
     }

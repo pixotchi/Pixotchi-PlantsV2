@@ -15,11 +15,11 @@ library SpinGameStorage {
             abi.encode(uint256(keccak256("eth.pixotchi.spin.game.storage")) - 1)
         ) & ~bytes32(uint256(0xff));
 
-    struct Reward {
-        int256 points; // Can be negative for deductions.
-        int256 timeAdjustment; // Can be negative for reductions. Represented in seconds.
-        bool isPercentage; // True if the adjustments are percentage-based.
-    }
+//    struct Reward {
+//        int256 points; // Can be negative for deductions.
+//        int256 timeAdjustment; // Can be negative for reductions. Represented in seconds.
+//        bool isPercentage; // True if the adjustments are percentage-based.
+//    }
 
     struct Data {
         uint256 coolDownTime; // Cooldown time between plays for each NFT.
