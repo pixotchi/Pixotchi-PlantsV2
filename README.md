@@ -76,3 +76,12 @@ EIP-7504 standardizes the concept of dynamic contracts, which are proxy contract
 - **Upgradeability**: Individual functions can be upgraded without affecting the entire contract, enhancing flexibility.
 
 For more details, refer to the [blog post](https://blog.thirdweb.com/erc-7504-dynamic-smart-contracts/).
+
+
+## License
+
+Licensed under the MIT License. See the `LICENSE` file at the project root for details.
+
+---
+
+**Built with ❤️ for the Pixotchi community**
