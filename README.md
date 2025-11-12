@@ -1,87 +1,103 @@
-# Pixotchi V2
+# Pixotchi Plant Contract Suite
 
-Pixotchi is a blockchain-based game where players can mint, grow, and battle digital plants. This repository contains the smart contracts for the Pixotchi game.
+Onchain horticulture powers every Pixotchi game loop.  
+This repository contains the upgradeable smart contracts backing plant minting, growth, battles, accessories, and the in-game economy that surrounds them.
 
-## Contracts Overview
+<p align="center">
+  <img src="https://mini.pixotchi.tech/ecologo.png" alt="Pixotchi Logo" width="160">
+</p>
 
-### Entrypoint
-
-- **PixotchiRouter.sol**: Main router contract that handles initialization, upgrades, and generic contract logic.
-
-### NFT
-
-- **NFTLogic.sol**: Handles the logic for minting, burning, and managing NFTs.
-- **Renderer.sol**: Prepares the token URI for the NFTs.
-
-### Minigames
-
-- **BoxGame.sol**: Implements the Box Game logic.
-- **SpinGame.sol**: Implements the Spin Game logic.
-
-### Shop
-
-- **ShopLogic.sol**: Manages the shop items and their purchases.
-
-### Garden
-
-- **GardenLogic.sol**: Manages garden-related logic, including buying accessories for plants.
-
-### Game
-
-- **GameLogic.sol**: Core game logic including attacking, killing, and redeeming rewards.
-- **ConfigLogic.sol**: Configuration logic for setting up strains and other game parameters.
-- **GameStorage.sol**: Storage layout for the game.
-
-### Utilities
-
-- **FixedPointMathLib.sol**: Library for fixed-point arithmetic.
-- **PixotchiExtensionPermission.sol**: Manages permissions for extensions.
-- **ERC2771ContextConsumer.sol**: Context variant with ERC2771 support.
-
-### Interfaces
-
-- **IPixotchi.sol**: Main interface for the Pixotchi game.
-- **IToken.sol**: Interface for the token used in the game.
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js
-- Hardhat
-- Solidity ^0.8.23
-
-### Installation
-
-1. Clone the repository:
-
-## EIP-7504: Dynamic Smart Contracts
-
-Pixotchi V2 is based on [EIP-7504: Dynamic Smart Contracts](https://blog.thirdweb.com/erc-7504-dynamic-smart-contracts/) from thirdweb.com. This Ethereum standard introduces a client-friendly approach to one-to-many proxy contracts, enhancing the flexibility and upgradeability of smart contracts.
-
-### How EIP-7504 Works
-
-EIP-7504 standardizes the concept of dynamic contracts, which are proxy contracts that can delegate calls to multiple implementation contracts. This is achieved through a `Router` interface that includes a fallback function to delegate calls based on the function selector (`msg.sig`). The `Router` determines the appropriate implementation contract for each function call, allowing for modular and upgradeable contract design.
-
-#### Key Components
-
-1. **Router Interface**: Defines the fallback function and the method to get the implementation address for a function selector.
-2. **RouterState Interface**: Manages the state of the router, including the extensions and their functions.
-3. **Extensions**: Implementation contracts that contain the logic for specific functions. The router delegates calls to these extensions based on the function selector.
-
-#### Benefits
-
-- **Modularity**: Functions can be grouped into extensions, making the contract more modular and easier to upgrade.
-- **Client Friendliness**: The standard ensures that the ABI is straightforward to interpret, facilitating client interactions.
-- **Upgradeability**: Individual functions can be upgraded without affecting the entire contract, enhancing flexibility.
-
-For more details, refer to the [blog post](https://blog.thirdweb.com/erc-7504-dynamic-smart-contracts/).
-
-
-## License
-
-Licensed under the MIT License. See the `LICENSE` file at the project root for details.
+[![Network](https://img.shields.io/badge/Base-Mainnet-0052FF?logo=coinbase&logoColor=white&style=flat-square)](https://basescan.org/address/0xeb4e16c804ae9275a655abbc20cd0658a91f9235)
+[![Architecture](https://img.shields.io/badge/Standard-EIP--7504-6f3aff?style=flat-square)](https://blog.thirdweb.com/erc-7504-dynamic-smart-contracts/)
+[![Upgradeable](https://img.shields.io/badge/Router-Dynamic%20Proxy-38B2AC?style=flat-square)](#architecture)
+[![License](https://img.shields.io/badge/License-MIT-000?style=flat-square)](LICENSE)
 
 ---
 
-**Built with ❤️ for the Pixotchi community**
+## Mainnet Contracts
+
+| Module | Address | Purpose |
+| ------ | ------- | ------- |
+| **Plant Router (Proxy)** | `0xeb4e16c804AE9275a655AbBc20cD0658A91F9235` | ERC‑7504 router exposing all plant functionality |
+| **Land Diamond** | `0x3f1F8F0C4BE4bCeB45E6597AFe0dE861B8c3278c` | Linked land system (claims resources, assigns plant stats) |
+| **SEED Token** | `0x546D239032b24eCEEE0cb05c92FC39090846adc7` | Primary payment/growth currency |
+| **LEAF Token** | `0xE78ee52349D7b031E2A6633E07c037C3147DB116` | Reward currency used by accessories, quests, and staking |
+
+Extensions are dynamically installed/uninstalled through the router; their addresses evolve over time. Always pull the live ABI from the router or the `extensions()` view.
+
+---
+
+## Architecture
+
+Pixotchi Plants adopt [EIP‑7504 Dynamic Smart Contracts](https://blog.thirdweb.com/erc-7504-dynamic-smart-contracts/):
+
+- **Router** – Minimal proxy that delegates to extension contracts determined by `msg.sig`.
+- **Extensions** – Individual logic modules (NFT, games, shop, garden, etc.).
+- **Composable ABI** – Router exposes an aggregated ABI, keeping clients simple and upgrade-safe.
+- **Permission layer** – `PixotchiExtensionPermission` and router state gating ensure only authorised extensions are installed.
+
+This architecture allows us to iterate on gameplay without replacing the proxy, while keeping storage layouts isolated per extension.
+
+---
+
+## Extension Overview
+
+| Category | Extension | Summary |
+| -------- | --------- | ------- |
+| **Entrypoint** | `PixotchiRouter` | Initializes the contract, manages extensions, routes every call. |
+| **NFT** | `NFTLogic`, `Renderer` | ERC-721 core mint/burn logic, metadata assembly, composable accessories. |
+| **Gameplay** | `GameLogic`, `ConfigLogic`, `GameStorage` | Battle mechanics, strain configuration, kill rewards, shared storage. |
+| **Minigames** | `BoxGame`, `SpinGame` | Onchain minigames providing bonus rewards and engagement loops. |
+| **Garden** | `GardenLogic` | Accessory purchasing, garden upgrades, cosmetic metadata. |
+| **Shop** | `ShopLogic` | Item catalog, pricing, and checkout flow. |
+| **Utilities** | `FixedPointMathLib`, `PixotchiExtensionPermission`, `ERC2771ContextConsumer` | Math helpers, extension access control, meta-transaction context. |
+| **Interfaces** | `IPixotchi`, `IToken` | Contract interfaces for external integrations and router tooling. |
+
+Each extension is versioned; new deployments can replace specific modules without touching the rest of the system.
+
+---
+
+## Building & Testing
+
+```bash
+pnpm install
+pnpm build         # compile extensions
+pnpm test          # run Hardhat test suite
+```
+
+Targets:
+- Solidity `^0.8.23`
+- Node.js 18+
+- Hardhat for local development
+
+For script-driven installs and upgrades, review the `scripts/` directory. The router exposes helper functions to attach/detach extensions when deploying from code.
+
+---
+
+## Deploy / Upgrade Workflow
+
+1. **Deploy new extension** – compile and deploy the replacement contract.
+2. **Register in router** – call `PixotchiRouter.installExtension(extension, metadata)` from the owner account.
+3. **Verify ABI** – ensure the router reflects the new function selectors.
+4. **Deactivate legacy logic** (optional) – remove unused extensions for cleanliness.
+
+Because the router handles delegation, state migrations happen inside the extension. Keep storage layout changes backward compatible or include migration hooks.
+
+---
+
+## Integrating With Land
+
+The land diamond consumes plant APIs via:
+
+- `landToPlantAssignPlantPoints` / `landToPlantAssignLifeTime`
+- Cross-contract XP and resource routing
+
+If you upgrade plant interfaces, maintain these entry points or coordinate a simultaneous land upgrade.
+
+---
+
+## License
+
+MIT – see the root `LICENSE`.
+
+Built with ❤️ for the Pixotchi community and its ever-growing gardens.
