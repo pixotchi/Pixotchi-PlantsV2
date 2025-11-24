@@ -1,0 +1,572 @@
+{
+  "compiler": {
+    "version": "0.8.23+commit.f704f362"
+  },
+  "language": "Solidity",
+  "output": {
+    "abi": [
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "uint8",
+            "name": "version",
+            "type": "uint8"
+          }
+        ],
+        "name": "Initialized",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "expireTime",
+            "type": "uint256"
+          }
+        ],
+        "name": "ShopItemCreated",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "uint256",
+            "name": "nftId",
+            "type": "uint256"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "buyer",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "internalType": "uint256",
+            "name": "itemId",
+            "type": "uint256"
+          }
+        ],
+        "name": "ShopItemPurchased",
+        "type": "event"
+      },
+      {
+        "inputs": [],
+        "name": "reinitializer_8_ShopLogic",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "nftId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "itemId",
+            "type": "uint256"
+          }
+        ],
+        "name": "shopBuyItem",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "itemId",
+            "type": "uint256"
+          }
+        ],
+        "name": "shopDoesItemExist",
+        "outputs": [
+          {
+            "internalType": "bool",
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "shopGetAllItems",
+        "outputs": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+              },
+              {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "effectTime",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct IShop.ShopItem[]",
+            "name": "",
+            "type": "tuple[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "nftId",
+            "type": "uint256"
+          }
+        ],
+        "name": "shopGetPurchasedItems",
+        "outputs": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+              },
+              {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "effectUntil",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bool",
+                "name": "effectIsOngoingActive",
+                "type": "bool"
+              }
+            ],
+            "internalType": "struct IShop.ShopItemOwned[]",
+            "name": "",
+            "type": "tuple[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "nftId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "itemId",
+            "type": "uint256"
+          }
+        ],
+        "name": "shopIsEffectOngoing",
+        "outputs": [
+          {
+            "internalType": "bool",
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "itemId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "expireTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "maxSupply",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "effectTime",
+            "type": "uint256"
+          }
+        ],
+        "name": "shopModifyItem",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    ],
+    "devdoc": {
+      "details": "Implements the IShop interface and uses various imported libraries and contracts.",
+      "events": {
+        "Initialized(uint8)": {
+          "details": "Triggered when the contract has been initialized or reinitialized."
+        },
+        "ShopItemCreated(uint256,string,uint256,uint256)": {
+          "params": {
+            "expireTime": "The expiration time of the shop item.",
+            "id": "The ID of the shop item.",
+            "name": "The name of the shop item.",
+            "price": "The price of the shop item."
+          }
+        },
+        "ShopItemPurchased(uint256,address,uint256)": {
+          "params": {
+            "buyer": "The address of the buyer.",
+            "itemId": "The ID of the purchased item.",
+            "nftId": "The ID of the NFT."
+          }
+        }
+      },
+      "kind": "dev",
+      "methods": {
+        "reinitializer_8_ShopLogic()": {
+          "details": "This function is called to reinitialize the contract with new settings."
+        },
+        "shopBuyItem(uint256,uint256)": {
+          "params": {
+            "itemId": "The ID of the item to buy.",
+            "nftId": "The ID of the NFT."
+          }
+        },
+        "shopDoesItemExist(uint256)": {
+          "params": {
+            "itemId": "The ID of the item."
+          },
+          "returns": {
+            "_0": "bool True if the item exists, false otherwise."
+          }
+        },
+        "shopGetAllItems()": {
+          "returns": {
+            "_0": "ShopItem[] An array of all shop items."
+          }
+        },
+        "shopGetPurchasedItems(uint256)": {
+          "details": "This function retrieves all the shop items that have been purchased by a specific NFT. It returns an array of `ShopItemOwned` structs, each containing details about the item.",
+          "params": {
+            "nftId": "The ID of the NFT for which to retrieve purchased items."
+          },
+          "returns": {
+            "_0": "ShopItemOwned[] An array of owned shop items, each containing: - `id`: The ID of the item. - `name`: The name of the item. - `effectUntil`: The timestamp until which the item's effect is active. - `effectIsOngoingActive`: A boolean indicating if the item's effect is still ongoing."
+          }
+        },
+        "shopIsEffectOngoing(uint256,uint256)": {
+          "params": {
+            "itemId": "The ID of the item.",
+            "nftId": "The ID of the NFT."
+          },
+          "returns": {
+            "_0": "bool True if the effect is still ongoing, false otherwise."
+          }
+        },
+        "shopModifyItem(uint256,string,uint256,uint256,uint256,uint256)": {
+          "params": {
+            "effectTime": "The effect time of the item.",
+            "expireTime": "The expiration time of the item.",
+            "itemId": "The ID of the item.",
+            "maxSupply": "The maximum supply of the item (0 for unlimited).",
+            "name": "The name of the item.",
+            "price": "The price of the item."
+          }
+        }
+      },
+      "title": "ShopLogic Contract",
+      "version": 1
+    },
+    "userdoc": {
+      "events": {
+        "ShopItemCreated(uint256,string,uint256,uint256)": {
+          "notice": "Emitted when a shop item is created."
+        },
+        "ShopItemPurchased(uint256,address,uint256)": {
+          "notice": "Emitted when a shop item is purchased."
+        }
+      },
+      "kind": "user",
+      "methods": {
+        "reinitializer_8_ShopLogic()": {
+          "notice": "Reinitializes the ShopLogic contract."
+        },
+        "shopBuyItem(uint256,uint256)": {
+          "notice": "Buys a shop item."
+        },
+        "shopDoesItemExist(uint256)": {
+          "notice": "Checks if a shop item exists."
+        },
+        "shopGetAllItems()": {
+          "notice": "Gets all shop items."
+        },
+        "shopGetPurchasedItems(uint256)": {
+          "notice": "Gets the purchased shop items for a specific NFT."
+        },
+        "shopIsEffectOngoing(uint256,uint256)": {
+          "notice": "Checks if the effect of a shop item is still ongoing for an NFT."
+        },
+        "shopModifyItem(uint256,string,uint256,uint256,uint256,uint256)": {
+          "notice": "Modifies an existing shop item."
+        }
+      },
+      "notice": "This contract handles the logic for the shop in the game.",
+      "version": 1
+    }
+  },
+  "settings": {
+    "compilationTarget": {
+      "src/shop/ShopLogic.sol": "ShopLogic"
+    },
+    "evmVersion": "paris",
+    "libraries": {},
+    "metadata": {
+      "bytecodeHash": "ipfs"
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "remappings": [
+      ":@chainlink/=lib/contracts/lib/chainlink/",
+      ":@ds-test/=lib/contracts/lib/ds-test/src/",
+      ":@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/",
+      ":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+      ":@rari-capital/solmate/=lib/contracts/lib/seaport/lib/solmate/",
+      ":@seaport/=lib/contracts/lib/seaport/contracts/",
+      ":@solady/=lib/contracts/lib/solady/",
+      ":@std/=lib/contracts/lib/forge-std/src/",
+      ":@thirdweb-dev/=node_modules/@thirdweb-dev/",
+      ":@thirdweb-dev/dynamic-contracts/=lib/contracts/lib/dynamic-contracts/",
+      ":ERC721A-Upgradeable/=lib/contracts/lib/ERC721A-Upgradeable/contracts/",
+      ":ERC721A/=lib/contracts/lib/ERC721A/contracts/",
+      ":chainlink/=lib/contracts/lib/chainlink/contracts/",
+      ":contracts/=lib/contracts/contracts/",
+      ":ds-test/=lib/contracts/lib/ds-test/src/",
+      ":dynamic-contracts/=lib/dynamic-contracts/src/",
+      ":erc4626-tests/=lib/openzeppelin-contracts-upgradeable/lib/erc4626-tests/",
+      ":erc721a-upgradeable/=lib/contracts/lib/ERC721A-Upgradeable/",
+      ":erc721a/=lib/contracts/lib/ERC721A/",
+      ":forge-std/=lib/forge-std/src/",
+      ":lib/sstore2/=lib/contracts/lib/dynamic-contracts/lib/sstore2/",
+      ":murky/=lib/contracts/lib/murky/",
+      ":openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/",
+      ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+      ":openzeppelin/=lib/contracts/lib/openzeppelin-contracts-upgradeable/contracts/",
+      ":seaport-core/=lib/contracts/lib/seaport-core/src/",
+      ":seaport-sol/=lib/contracts/lib/seaport-sol/src/",
+      ":seaport-types/=lib/contracts/lib/seaport-types/src/",
+      ":seaport/=lib/contracts/lib/seaport/",
+      ":solady/=lib/contracts/lib/solady/src/",
+      ":solarray/=lib/contracts/lib/seaport/lib/solarray/src/",
+      ":solmate/=lib/contracts/lib/seaport/lib/solmate/src/",
+      ":sstore2/=lib/dynamic-contracts/lib/sstore2/contracts/",
+      ":thirdweb-contracts/=lib/thirdweb-contracts/contracts/"
+    ]
+  },
+  "sources": {
+    "lib/contracts/contracts/eip/interface/IERC721.sol": {
+      "keccak256": "0x00754fd93079350acb6b1d0451320cc4b4252bf7990aa39cde29abb5ca4a60ea",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://c91392521b426c02b342d4ba0f2c5cad2c6074e1be90203c9525751dd23b36bf",
+        "dweb:/ipfs/QmNjjCttJ9A39HMn3FTMqjQN5y7UoQrPUhQ7Nd8Ci7jFZj"
+      ]
+    },
+    "lib/contracts/contracts/eip/interface/IERC721A.sol": {
+      "keccak256": "0xba8dd210c2a35a4e82cfc1e6586a3033fe337e40c23798793d7c8cd31694e0cd",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://368eedd471b0aa41e83c2233aba9939ce25daae28de6b5ab427399ac91140eb8",
+        "dweb:/ipfs/QmeMQTGpAGN4YZV8GPjrZr4zUtQ9Macsaset3FFY5CBVP5"
+      ]
+    },
+    "lib/contracts/contracts/eip/interface/IERC721Metadata.sol": {
+      "keccak256": "0x7f80ade420dd9bf39c4dbca10484b625e2096ee332c22a00e658148f170ee5fb",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://7bcac290ef069b09e887e6c80af6a77c23e935bc271622585f61339779ac485e",
+        "dweb:/ipfs/QmbqzDQ2pCtKrJcD7LJcBDUX6nfmx2YtcTDAhi3noX5rc4"
+      ]
+    },
+    "lib/contracts/contracts/extension/interface/IPermissions.sol": {
+      "keccak256": "0xc0cd1f87bac474a06f85e2b341b9b57662aee957fc24180d42c872481c2f2ae3",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://7dec3eed451d63867531d693f0be3279fa2c9aef3130f0826c3520c06820fa5d",
+        "dweb:/ipfs/QmTYANrcPdd9SCe99DWsKJ19evNRQKQGZeoS1Keew4M2cS"
+      ]
+    },
+    "lib/contracts/contracts/extension/interface/IPermissionsEnumerable.sol": {
+      "keccak256": "0x2e742c18a4481bad41d56424cd16c52def2fb415f69e5fb5f67d8d979300ff95",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://d9be33bb865e3e82aca540a3e38cbc2bf2e431f9d1bf39c50d6c757e7b7bf3ee",
+        "dweb:/ipfs/Qmdad1Xqj5SQ44Bk4bwD2uA36XnGHtqnVYSomKZQvnUBVG"
+      ]
+    },
+    "lib/contracts/contracts/extension/upgradeable/Initializable.sol": {
+      "keccak256": "0x359ee85a4b1b32f7e875ff4742ce3b347a036e2d065675494889e9753fc6f64a",
+      "license": "Apache 2.0",
+      "urls": [
+        "bzz-raw://daa0a7f80cf27545e7040c2bc32486c4d9a8a8a75a7cde5ad6ea4b85f75f6fbf",
+        "dweb:/ipfs/QmZmKPCTUUKN8BKo2aCGFRYVAkZtEs3R6Ysx1m3Kibv4Ai"
+      ]
+    },
+    "lib/contracts/contracts/extension/upgradeable/Permissions.sol": {
+      "keccak256": "0xc543a8f28fd99b1c4f313fc74f1549e96a645681e11d50e4de54f6a7a6f1d3e9",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://61b0641aed031275f1cca7fa202adf9535ae2295fcde96544c059f770caf0080",
+        "dweb:/ipfs/QmfQJDmhTgm3qVxN6jN3diZyCKYBXuEYwb247FF1KKwxdL"
+      ]
+    },
+    "lib/contracts/contracts/extension/upgradeable/PermissionsEnumerable.sol": {
+      "keccak256": "0xd69a09eb5078dc85e9fb3e59f578c267e7694f2bc9f995461225b596af93b07f",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://08fa417baf97ef109876f76a0040e28d9c7b9edafb52189352642790f10a335c",
+        "dweb:/ipfs/QmZDMmbLDuG48VUZLvAZnkUuNexyZ3ys1hoqFGn7hvtNyc"
+      ]
+    },
+    "lib/contracts/contracts/extension/upgradeable/ReentrancyGuard.sol": {
+      "keccak256": "0x736596906d22abd0e2d0443298dd1b6d1a002a77329f25b55f3dd3a14a183728",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://a0efbbf4ffca8ec9b9669f1cbee3960dada7da091c52b5b083e76358a5ee5b6b",
+        "dweb:/ipfs/QmaXkMvCeZBQtaG1tpjs9mBQVxKiJSUGEZ6v36iWetvRAR"
+      ]
+    },
+    "lib/contracts/contracts/lib/Address.sol": {
+      "keccak256": "0xa1e2c06c07422ce6f27ab1c4d4ce62bdc3200e082b735b5e3a75c2e7b61cbc4f",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://cc90229c980f78c582a05386d4621172c7d20dec9ad528a5bf1d59b243fff0a5",
+        "dweb:/ipfs/QmcZZLaZ9XU1gWj7b9EBZftPoED3pKEvvFGhS5yBvtMPtn"
+      ]
+    },
+    "lib/contracts/contracts/lib/Strings.sol": {
+      "keccak256": "0xd8fcca4db8f1678a124ae0d3b4da6c29e9737e5ae03f90f18b84261ae4499568",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://ed0d23694c31613645904cc5d6f3e08ecd34063aeb5bd23ebc9a8223a67f91fb",
+        "dweb:/ipfs/QmTf9WBdvzU2dDDTqeSn1g85AkXTe8MfN1pdyaVzm15Cdb"
+      ]
+    },
+    "lib/contracts/lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SafeMathUpgradeable.sol": {
+      "keccak256": "0xb1561a6950b1aaa504c8f81b7d46bccfa77ccd10de3eb865cf34b1acd5ad505e",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://9a56cb91629dacd161be24908fbf94315f3f45dd6fee8dad82b27af853cbc4ee",
+        "dweb:/ipfs/QmNfEzdf4NTpxyhzWKAmeDwwSpJ6ZjNizK3GXw3TEuTTgn"
+      ]
+    },
+    "src/IPixotchi.sol": {
+      "keccak256": "0x279ea270cc773b38b9d0fa4ae026550d5e14edfcd2fd0e9653f82895d67b9b48",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://4a1dc80284de75a45708c2059661ed336aebd6680e3e726c2ffc599f8e563f17",
+        "dweb:/ipfs/QmY7DCdbE7WFDcNqehCjFheiDaPdVWHELzemVY4hN539cJ"
+      ]
+    },
+    "src/IToken.sol": {
+      "keccak256": "0x9976d0840482fb0aca480ba1f9ba1295e9a658fcd9c8be965bf0c12a4fcaac3b",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://898fed790e604188091056c4494b5e4b98cdc0e37c694abbcb3a41c3439be0aa",
+        "dweb:/ipfs/QmdmxCeZBwpWLctzVWoaKfZv3bpbR5f2vckwQdYyGHxnFt"
+      ]
+    },
+    "src/game/GameStorage.sol": {
+      "keccak256": "0xa127525b654412b55d423b02cb2c6a09b560ca3e05f2a785a5d0ed6215a3ad7c",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://2c3383e31ae5fc8c9af2b3c3f71dc01d60ac378c05cd6b52c663f4b743dbc179",
+        "dweb:/ipfs/QmSmbhqZ1u8JmLWnKSGNmfzgsNkSgZWv1bEXrHEE9G3C5A"
+      ]
+    },
+    "src/shop/ShopLogic.sol": {
+      "keccak256": "0xcac83335255cf59f841ac1497ed304c11b66008165684b1c4e98cdc10896e273",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://a1b8c4a2db53c2ead3164a9eb5d420a421e4e32644e2b1a645e86b03e2787c8c",
+        "dweb:/ipfs/QmdWj8wav2sEyRdozbTPV7GCPpsoh74H21xrFGJJRZfz3M"
+      ]
+    },
+    "src/shop/ShopStorage.sol": {
+      "keccak256": "0x3c16ce43d4273304e36855096ea0cab62a2d01211ad9c394089369590f1d22d8",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://ce9da96af8e2d3667d53132838d208d877e8d0a364da4dbb26ca25368e1f4ee2",
+        "dweb:/ipfs/QmQ5cWk1kn4DJ4jAtV7oaTgMmFLNLxU5ynipPZn46Xjyjs"
+      ]
+    },
+    "src/utils/PixotchiExtensionPermission.sol": {
+      "keccak256": "0x67ccf2a6c0d129cc7b1cf4d912bfc885bbe699ae4e815073c0eb70c31755f614",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://98ea966bdee679543597fffb07663f89d679b4c26099ed330d36915aad401db2",
+        "dweb:/ipfs/QmXfmZkiQXMBpXHPFJxvhg7CtQVdNrH6A7qG9RW2M67QT7"
+      ]
+    }
+  },
+  "version": 1
+}

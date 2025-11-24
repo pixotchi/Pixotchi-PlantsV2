@@ -1,0 +1,303 @@
+{
+  "compiler": {
+    "version": "0.8.28+commit.7893614a"
+  },
+  "language": "Solidity",
+  "output": {
+    "abi": [
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "uint256[]",
+            "name": "updatedPlantIds",
+            "type": "uint256[]"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "secondsAdded",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256[]",
+            "name": "skippedPlantIds",
+            "type": "uint256[]"
+          }
+        ],
+        "name": "AirdropLifetimeExtended",
+        "type": "event"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256[]",
+            "name": "plantIds",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256",
+            "name": "secondsToAdd",
+            "type": "uint256"
+          }
+        ],
+        "name": "airdropExtendLifetime",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "airdropGetAliveAndDeadTokenIds",
+        "outputs": [
+          {
+            "internalType": "uint256[]",
+            "name": "",
+            "type": "uint256[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "airdropGetAliveTokenIds",
+        "outputs": [
+          {
+            "internalType": "uint256[]",
+            "name": "",
+            "type": "uint256[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ],
+    "devdoc": {
+      "events": {
+        "AirdropLifetimeExtended(uint256[],uint256,uint256[])": {
+          "params": {
+            "secondsAdded": "The number of seconds added to each plant's time until starving",
+            "skippedPlantIds": "An array of plant token IDs that were skipped (burned or dead)",
+            "updatedPlantIds": "An array of plant token IDs that received the airdrop"
+          }
+        }
+      },
+      "kind": "dev",
+      "methods": {
+        "airdropExtendLifetime(uint256[],uint256)": {
+          "params": {
+            "plantIds": "An array of plant token IDs to receive the airdrop",
+            "secondsToAdd": "The number of seconds to add to each plant's time until starving"
+          }
+        },
+        "airdropGetAliveAndDeadTokenIds()": {
+          "returns": {
+            "_0": "An array of uint256 representing the token IDs of alive & dead plants"
+          }
+        },
+        "airdropGetAliveTokenIds()": {
+          "returns": {
+            "_0": "An array of uint256 representing the token IDs of alive plants"
+          }
+        }
+      },
+      "version": 1
+    },
+    "userdoc": {
+      "events": {
+        "AirdropLifetimeExtended(uint256[],uint256,uint256[])": {
+          "notice": "Emitted when plant lifetimes are extended through an airdrop"
+        }
+      },
+      "kind": "user",
+      "methods": {
+        "airdropExtendLifetime(uint256[],uint256)": {
+          "notice": "Airdrops additional time to the specified plant IDs"
+        },
+        "airdropGetAliveAndDeadTokenIds()": {
+          "notice": "Returns an array of token IDs for all alive & dead plants"
+        },
+        "airdropGetAliveTokenIds()": {
+          "notice": "Returns an array of token IDs for all alive plants"
+        }
+      },
+      "version": 1
+    }
+  },
+  "settings": {
+    "compilationTarget": {
+      "src/game/AirdropLogic.sol": "AirdropLogic"
+    },
+    "evmVersion": "paris",
+    "libraries": {},
+    "metadata": {
+      "bytecodeHash": "ipfs"
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "remappings": [
+      ":@chainlink/=lib/contracts/lib/chainlink/",
+      ":@ds-test/=lib/contracts/lib/ds-test/src/",
+      ":@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/",
+      ":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+      ":@rari-capital/solmate/=lib/contracts/lib/seaport/lib/solmate/",
+      ":@seaport/=lib/contracts/lib/seaport/contracts/",
+      ":@solady/=lib/contracts/lib/solady/",
+      ":@std/=lib/contracts/lib/forge-std/src/",
+      ":@thirdweb-dev/=node_modules/@thirdweb-dev/",
+      ":@thirdweb-dev/dynamic-contracts/=lib/contracts/lib/dynamic-contracts/",
+      ":ERC721A-Upgradeable/=lib/contracts/lib/ERC721A-Upgradeable/contracts/",
+      ":ERC721A/=lib/contracts/lib/ERC721A/contracts/",
+      ":chainlink/=lib/contracts/lib/chainlink/contracts/",
+      ":contracts/=lib/contracts/contracts/",
+      ":ds-test/=lib/contracts/lib/ds-test/src/",
+      ":dynamic-contracts/=lib/dynamic-contracts/src/",
+      ":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/",
+      ":erc721a-upgradeable/=lib/contracts/lib/ERC721A-Upgradeable/",
+      ":erc721a/=lib/contracts/lib/ERC721A/",
+      ":forge-std/=lib/contracts/lib/forge-std/src/",
+      ":halmos-cheatcodes/=lib/openzeppelin-contracts/lib/halmos-cheatcodes/src/",
+      ":lib/sstore2/=lib/contracts/lib/dynamic-contracts/lib/sstore2/",
+      ":murky/=lib/contracts/lib/murky/src/",
+      ":openzeppelin-contracts-upgradeable/=lib/contracts/lib/openzeppelin-contracts-upgradeable/",
+      ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+      ":openzeppelin/=lib/contracts/lib/openzeppelin-contracts-upgradeable/contracts/",
+      ":seaport-core/=lib/contracts/lib/seaport-core/src/",
+      ":seaport-sol/=lib/contracts/lib/seaport-sol/src/",
+      ":seaport-types/=lib/contracts/lib/seaport-types/src/",
+      ":seaport/=lib/contracts/lib/seaport/",
+      ":solady/=lib/contracts/lib/solady/src/",
+      ":solarray/=lib/contracts/lib/seaport/lib/solarray/src/",
+      ":solmate/=lib/contracts/lib/seaport/lib/solmate/src/",
+      ":sstore2/=lib/dynamic-contracts/lib/sstore2/contracts/"
+    ]
+  },
+  "sources": {
+    "lib/contracts/contracts/eip/interface/IERC721.sol": {
+      "keccak256": "0x00754fd93079350acb6b1d0451320cc4b4252bf7990aa39cde29abb5ca4a60ea",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://c91392521b426c02b342d4ba0f2c5cad2c6074e1be90203c9525751dd23b36bf",
+        "dweb:/ipfs/QmNjjCttJ9A39HMn3FTMqjQN5y7UoQrPUhQ7Nd8Ci7jFZj"
+      ]
+    },
+    "lib/contracts/contracts/eip/interface/IERC721A.sol": {
+      "keccak256": "0xba8dd210c2a35a4e82cfc1e6586a3033fe337e40c23798793d7c8cd31694e0cd",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://368eedd471b0aa41e83c2233aba9939ce25daae28de6b5ab427399ac91140eb8",
+        "dweb:/ipfs/QmeMQTGpAGN4YZV8GPjrZr4zUtQ9Macsaset3FFY5CBVP5"
+      ]
+    },
+    "lib/contracts/contracts/eip/interface/IERC721Metadata.sol": {
+      "keccak256": "0x7f80ade420dd9bf39c4dbca10484b625e2096ee332c22a00e658148f170ee5fb",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://7bcac290ef069b09e887e6c80af6a77c23e935bc271622585f61339779ac485e",
+        "dweb:/ipfs/QmbqzDQ2pCtKrJcD7LJcBDUX6nfmx2YtcTDAhi3noX5rc4"
+      ]
+    },
+    "lib/contracts/contracts/extension/interface/IPermissions.sol": {
+      "keccak256": "0xc0cd1f87bac474a06f85e2b341b9b57662aee957fc24180d42c872481c2f2ae3",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://7dec3eed451d63867531d693f0be3279fa2c9aef3130f0826c3520c06820fa5d",
+        "dweb:/ipfs/QmTYANrcPdd9SCe99DWsKJ19evNRQKQGZeoS1Keew4M2cS"
+      ]
+    },
+    "lib/contracts/contracts/extension/interface/IPermissionsEnumerable.sol": {
+      "keccak256": "0x2e742c18a4481bad41d56424cd16c52def2fb415f69e5fb5f67d8d979300ff95",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://d9be33bb865e3e82aca540a3e38cbc2bf2e431f9d1bf39c50d6c757e7b7bf3ee",
+        "dweb:/ipfs/Qmdad1Xqj5SQ44Bk4bwD2uA36XnGHtqnVYSomKZQvnUBVG"
+      ]
+    },
+    "lib/contracts/contracts/extension/upgradeable/Permissions.sol": {
+      "keccak256": "0xc543a8f28fd99b1c4f313fc74f1549e96a645681e11d50e4de54f6a7a6f1d3e9",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://61b0641aed031275f1cca7fa202adf9535ae2295fcde96544c059f770caf0080",
+        "dweb:/ipfs/QmfQJDmhTgm3qVxN6jN3diZyCKYBXuEYwb247FF1KKwxdL"
+      ]
+    },
+    "lib/contracts/contracts/extension/upgradeable/PermissionsEnumerable.sol": {
+      "keccak256": "0xd69a09eb5078dc85e9fb3e59f578c267e7694f2bc9f995461225b596af93b07f",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://08fa417baf97ef109876f76a0040e28d9c7b9edafb52189352642790f10a335c",
+        "dweb:/ipfs/QmZDMmbLDuG48VUZLvAZnkUuNexyZ3ys1hoqFGn7hvtNyc"
+      ]
+    },
+    "lib/contracts/contracts/lib/Strings.sol": {
+      "keccak256": "0xd8fcca4db8f1678a124ae0d3b4da6c29e9737e5ae03f90f18b84261ae4499568",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://ed0d23694c31613645904cc5d6f3e08ecd34063aeb5bd23ebc9a8223a67f91fb",
+        "dweb:/ipfs/QmTf9WBdvzU2dDDTqeSn1g85AkXTe8MfN1pdyaVzm15Cdb"
+      ]
+    },
+    "src/IPixotchi.sol": {
+      "keccak256": "0xc85e83be2129b5363ac46817d796f6ad862f65f06333099dc0bab8cd62133190",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://1a910b9e0093a4018f20186d7c6ddeec3bd934472b607d3f794cf50d5fb1f283",
+        "dweb:/ipfs/QmehGGNg9V5SpBRuFYX54nBeuxe6YX5rhGhTTTHeehTgdM"
+      ]
+    },
+    "src/IToken.sol": {
+      "keccak256": "0x9976d0840482fb0aca480ba1f9ba1295e9a658fcd9c8be965bf0c12a4fcaac3b",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://898fed790e604188091056c4494b5e4b98cdc0e37c694abbcb3a41c3439be0aa",
+        "dweb:/ipfs/QmdmxCeZBwpWLctzVWoaKfZv3bpbR5f2vckwQdYyGHxnFt"
+      ]
+    },
+    "src/game/AirdropLogic.sol": {
+      "keccak256": "0x5dfe7f9d2960238f54cea4509a83b8eb4cb509512e10bd5fce15d52eeb8c6bd1",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://c268b2bd119e7410c9a0086d0cef0baf472a622358f58d83ad14311c4a7b17ad",
+        "dweb:/ipfs/QmWqtkWptwfQfqmcKsWDtUVTiTv2HoSNv1RfSKa7u63onM"
+      ]
+    },
+    "src/game/DebugStorage.sol": {
+      "keccak256": "0x12a6540932928d874654bfc66e868260d7a39d39732cc8bc0152f8566380bb43",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://7f0dfc935ae179e645a35c8dcf5d7ff611d213a3e7390fb0976a908081760610",
+        "dweb:/ipfs/QmRAovD97i9WDxqYagaV4j93xp2wck6aNcTVhuZ6q1epfJ"
+      ]
+    },
+    "src/game/GameStorage.sol": {
+      "keccak256": "0xdc6cf90232f6ec2c7b3600ca578fe563b638923a87a6031a044452dedbfe9141",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://352f8e43205f9f03c99781d2d227bd82ffd9a96301abf5e2c1412d5e90cf25f0",
+        "dweb:/ipfs/QmYftcHfNeJNx6bR5gNTfCLCyU5YFKZbR2SfVxfjRrhVFy"
+      ]
+    },
+    "src/nft/ERC721AExtension.sol": {
+      "keccak256": "0xba34bcdcc72e47b6180e7a4639441ec5620be85477ac2b197bac90f2a3a58ece",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://31b5609e6a7fd3bc317445a17dd4030794a426f437ef998a2138e32d4cfca468",
+        "dweb:/ipfs/QmeLGH7HeoKS4ut73V7kKrrvb1WdidniuKXh389j8kP6u2"
+      ]
+    },
+    "src/utils/PixotchiExtensionPermission.sol": {
+      "keccak256": "0x67ccf2a6c0d129cc7b1cf4d912bfc885bbe699ae4e815073c0eb70c31755f614",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://98ea966bdee679543597fffb07663f89d679b4c26099ed330d36915aad401db2",
+        "dweb:/ipfs/QmXfmZkiQXMBpXHPFJxvhg7CtQVdNrH6A7qG9RW2M67QT7"
+      ]
+    }
+  },
+  "version": 1
+}

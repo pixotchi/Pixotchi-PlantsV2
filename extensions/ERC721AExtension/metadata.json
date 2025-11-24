@@ -1,0 +1,136 @@
+{
+  "compiler": {
+    "version": "0.8.23+commit.f704f362"
+  },
+  "language": "Solidity",
+  "output": {
+    "abi": [
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+          }
+        ],
+        "name": "isBurned",
+        "outputs": [
+          {
+            "internalType": "bool",
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ],
+    "devdoc": {
+      "kind": "dev",
+      "methods": {
+        "isBurned(uint256)": {
+          "details": "Returns whether `tokenId` has been burned."
+        }
+      },
+      "version": 1
+    },
+    "userdoc": {
+      "kind": "user",
+      "methods": {},
+      "version": 1
+    }
+  },
+  "settings": {
+    "compilationTarget": {
+      "src/nft/ERC721AExtension.sol": "ERC721AExtension"
+    },
+    "evmVersion": "paris",
+    "libraries": {},
+    "metadata": {
+      "bytecodeHash": "ipfs"
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "remappings": [
+      ":@chainlink/=lib/contracts/lib/chainlink/",
+      ":@ds-test/=lib/contracts/lib/ds-test/src/",
+      ":@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/",
+      ":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+      ":@rari-capital/solmate/=lib/contracts/lib/seaport/lib/solmate/",
+      ":@seaport/=lib/contracts/lib/seaport/contracts/",
+      ":@solady/=lib/contracts/lib/solady/",
+      ":@std/=lib/contracts/lib/forge-std/src/",
+      ":@thirdweb-dev/=node_modules/@thirdweb-dev/",
+      ":@thirdweb-dev/dynamic-contracts/=lib/contracts/lib/dynamic-contracts/",
+      ":ERC721A-Upgradeable/=lib/contracts/lib/ERC721A-Upgradeable/contracts/",
+      ":ERC721A/=lib/contracts/lib/ERC721A/contracts/",
+      ":chainlink/=lib/contracts/lib/chainlink/contracts/",
+      ":contracts/=lib/contracts/contracts/",
+      ":ds-test/=lib/contracts/lib/ds-test/src/",
+      ":dynamic-contracts/=lib/dynamic-contracts/src/",
+      ":erc4626-tests/=lib/openzeppelin-contracts-upgradeable/lib/erc4626-tests/",
+      ":erc721a-upgradeable/=lib/contracts/lib/ERC721A-Upgradeable/",
+      ":erc721a/=lib/contracts/lib/ERC721A/",
+      ":forge-std/=lib/forge-std/src/",
+      ":lib/sstore2/=lib/contracts/lib/dynamic-contracts/lib/sstore2/",
+      ":murky/=lib/contracts/lib/murky/",
+      ":openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/",
+      ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+      ":openzeppelin/=lib/contracts/lib/openzeppelin-contracts-upgradeable/contracts/",
+      ":seaport-core/=lib/contracts/lib/seaport-core/src/",
+      ":seaport-sol/=lib/contracts/lib/seaport-sol/src/",
+      ":seaport-types/=lib/contracts/lib/seaport-types/src/",
+      ":seaport/=lib/contracts/lib/seaport/",
+      ":solady/=lib/contracts/lib/solady/src/",
+      ":solarray/=lib/contracts/lib/seaport/lib/solarray/src/",
+      ":solmate/=lib/contracts/lib/seaport/lib/solmate/src/",
+      ":sstore2/=lib/dynamic-contracts/lib/sstore2/contracts/",
+      ":thirdweb-contracts/=lib/thirdweb-contracts/contracts/"
+    ]
+  },
+  "sources": {
+    "lib/contracts/contracts/eip/interface/IERC721.sol": {
+      "keccak256": "0x00754fd93079350acb6b1d0451320cc4b4252bf7990aa39cde29abb5ca4a60ea",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://c91392521b426c02b342d4ba0f2c5cad2c6074e1be90203c9525751dd23b36bf",
+        "dweb:/ipfs/QmNjjCttJ9A39HMn3FTMqjQN5y7UoQrPUhQ7Nd8Ci7jFZj"
+      ]
+    },
+    "lib/contracts/contracts/eip/interface/IERC721A.sol": {
+      "keccak256": "0xba8dd210c2a35a4e82cfc1e6586a3033fe337e40c23798793d7c8cd31694e0cd",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://368eedd471b0aa41e83c2233aba9939ce25daae28de6b5ab427399ac91140eb8",
+        "dweb:/ipfs/QmeMQTGpAGN4YZV8GPjrZr4zUtQ9Macsaset3FFY5CBVP5"
+      ]
+    },
+    "lib/contracts/contracts/eip/interface/IERC721Metadata.sol": {
+      "keccak256": "0x7f80ade420dd9bf39c4dbca10484b625e2096ee332c22a00e658148f170ee5fb",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://7bcac290ef069b09e887e6c80af6a77c23e935bc271622585f61339779ac485e",
+        "dweb:/ipfs/QmbqzDQ2pCtKrJcD7LJcBDUX6nfmx2YtcTDAhi3noX5rc4"
+      ]
+    },
+    "src/IPixotchi.sol": {
+      "keccak256": "0x9afbc570defce416ec0322d2ee73ce854ca7837e5096b26befdf15748f22385b",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://04bfbf27cbb255bf5eeb1cd2c0a776d2a32fc3e4ee532fd2414eb30ec33242fc",
+        "dweb:/ipfs/QmfTVZ4ghm9UEKz29wTpHSPAKYCg6X6UfgsvgdFReM8bmQ"
+      ]
+    },
+    "src/nft/ERC721AExtension.sol": {
+      "keccak256": "0xb9cb32f96f062f5f1b94d8f3fdc975273f703518c0095b2e88d5d9e4b166630b",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://573609094b1348ec44b33d03b8544991994c4549f36d9807eadfe22a70d844ef",
+        "dweb:/ipfs/QmYqSNzVutuQ7cqvoJAXqExF3Cuqeb5jJvzvRpVjVS5RFU"
+      ]
+    }
+  },
+  "version": 1
+}

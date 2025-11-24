@@ -1,0 +1,324 @@
+{
+  "compiler": {
+    "version": "0.8.23+commit.f704f362"
+  },
+  "language": "Solidity",
+  "output": {
+    "abi": [
+      {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_level",
+            "type": "uint256"
+          }
+        ],
+        "name": "calculateImageLevel",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "pure",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_level",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "ipfsHash",
+            "type": "string"
+          }
+        ],
+        "name": "getImageUri",
+        "outputs": [
+          {
+            "internalType": "string",
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "stateMutability": "pure",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+              },
+              {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "timeUntilStarving",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "score",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "timePlantBorn",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "lastAttackUsed",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "lastAttacked",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "stars",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "strain",
+                "type": "uint256"
+              },
+              {
+                "internalType": "enum IGame.Status",
+                "name": "status",
+                "type": "uint8"
+              },
+              {
+                "internalType": "string",
+                "name": "statusStr",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "level",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "rewards",
+                "type": "uint256"
+              },
+              {
+                "components": [
+                  {
+                    "components": [
+                      {
+                        "internalType": "uint256",
+                        "name": "id",
+                        "type": "uint256"
+                      },
+                      {
+                        "internalType": "string",
+                        "name": "name",
+                        "type": "string"
+                      },
+                      {
+                        "internalType": "uint256",
+                        "name": "effectUntil",
+                        "type": "uint256"
+                      },
+                      {
+                        "internalType": "bool",
+                        "name": "effectIsOngoingActive",
+                        "type": "bool"
+                      }
+                    ],
+                    "internalType": "struct IShop.ShopItemOwned[]",
+                    "name": "shopItemOwned",
+                    "type": "tuple[]"
+                  }
+                ],
+                "internalType": "struct IGameExtensions.PlantExtensions[]",
+                "name": "extensions",
+                "type": "tuple[]"
+              }
+            ],
+            "internalType": "struct IGame.PlantFull",
+            "name": "plant",
+            "type": "tuple"
+          },
+          {
+            "internalType": "string",
+            "name": "ipfsHash",
+            "type": "string"
+          }
+        ],
+        "name": "prepareTokenURI",
+        "outputs": [
+          {
+            "internalType": "string",
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "stateMutability": "pure",
+        "type": "function"
+      }
+    ],
+    "devdoc": {
+      "kind": "dev",
+      "methods": {
+        "calculateImageLevel(uint256)": {
+          "params": {
+            "_level": "The level of the plant"
+          },
+          "returns": {
+            "_0": "The calculated image level"
+          }
+        },
+        "getImageUri(uint256,string)": {
+          "params": {
+            "_level": "The level of the plant",
+            "ipfsHash": "The IPFS hash for the image"
+          },
+          "returns": {
+            "_0": "The complete image URI"
+          }
+        }
+      },
+      "version": 1
+    },
+    "userdoc": {
+      "kind": "user",
+      "methods": {
+        "calculateImageLevel(uint256)": {
+          "notice": "Calculates the image level based on the plant level"
+        },
+        "getImageUri(uint256,string)": {
+          "notice": "Generates the image URI for a given level and IPFS hash"
+        }
+      },
+      "version": 1
+    }
+  },
+  "settings": {
+    "compilationTarget": {
+      "src/nft/Renderer.sol": "Renderer"
+    },
+    "evmVersion": "paris",
+    "libraries": {},
+    "metadata": {
+      "bytecodeHash": "ipfs"
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "remappings": [
+      ":@chainlink/=lib/contracts/lib/chainlink/",
+      ":@ds-test/=lib/contracts/lib/ds-test/src/",
+      ":@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/",
+      ":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+      ":@rari-capital/solmate/=lib/contracts/lib/seaport/lib/solmate/",
+      ":@seaport/=lib/contracts/lib/seaport/contracts/",
+      ":@solady/=lib/contracts/lib/solady/",
+      ":@std/=lib/contracts/lib/forge-std/src/",
+      ":@thirdweb-dev/=node_modules/@thirdweb-dev/",
+      ":@thirdweb-dev/dynamic-contracts/=lib/contracts/lib/dynamic-contracts/",
+      ":ERC721A-Upgradeable/=lib/contracts/lib/ERC721A-Upgradeable/contracts/",
+      ":ERC721A/=lib/contracts/lib/ERC721A/contracts/",
+      ":chainlink/=lib/contracts/lib/chainlink/contracts/",
+      ":contracts/=lib/contracts/contracts/",
+      ":ds-test/=lib/contracts/lib/ds-test/src/",
+      ":dynamic-contracts/=lib/dynamic-contracts/src/",
+      ":erc4626-tests/=lib/openzeppelin-contracts-upgradeable/lib/erc4626-tests/",
+      ":erc721a-upgradeable/=lib/contracts/lib/ERC721A-Upgradeable/",
+      ":erc721a/=lib/contracts/lib/ERC721A/",
+      ":forge-std/=lib/forge-std/src/",
+      ":lib/sstore2/=lib/contracts/lib/dynamic-contracts/lib/sstore2/",
+      ":murky/=lib/contracts/lib/murky/",
+      ":openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/",
+      ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+      ":openzeppelin/=lib/contracts/lib/openzeppelin-contracts-upgradeable/contracts/",
+      ":seaport-core/=lib/contracts/lib/seaport-core/src/",
+      ":seaport-sol/=lib/contracts/lib/seaport-sol/src/",
+      ":seaport-types/=lib/contracts/lib/seaport-types/src/",
+      ":seaport/=lib/contracts/lib/seaport/",
+      ":solady/=lib/contracts/lib/solady/src/",
+      ":solarray/=lib/contracts/lib/seaport/lib/solarray/src/",
+      ":solmate/=lib/contracts/lib/seaport/lib/solmate/src/",
+      ":sstore2/=lib/dynamic-contracts/lib/sstore2/contracts/",
+      ":thirdweb-contracts/=lib/thirdweb-contracts/contracts/"
+    ]
+  },
+  "sources": {
+    "lib/openzeppelin-contracts/contracts/utils/Base64.sol": {
+      "keccak256": "0x09000342b85b1a06fa1f5b71bdeef7c449cd25799aac14fa9053d8abd18219aa",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://a7cdab282a9165b685fa86da3bd331c8e319e5a5c64e16599134e738934a77d4",
+        "dweb:/ipfs/QmSLcE5FmDqVQbFDB6MzUzuFi4UhJVUQ1A2rT4aJGhpERT"
+      ]
+    },
+    "lib/openzeppelin-contracts/contracts/utils/Strings.sol": {
+      "keccak256": "0x55f102ea785d8399c0e58d1108e2d289506dde18abc6db1b7f68c1f9f9bc5792",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://6e52e0a7765c943ef14e5bcf11e46e6139fa044be564881378349236bf2e3453",
+        "dweb:/ipfs/QmZEeeXoFPW47amyP35gfzomF9DixqqTEPwzBakv6cZw6i"
+      ]
+    },
+    "lib/openzeppelin-contracts/contracts/utils/math/Math.sol": {
+      "keccak256": "0x005ec64c6313f0555d59e278f9a7a5ab2db5bdc72a027f255a37c327af1ec02d",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://4ece9f0b9c8daca08c76b6b5405a6446b6f73b3a15fab7ff56e296cbd4a2c875",
+        "dweb:/ipfs/QmQyRpyPRL5SQuAgj6SHmbir3foX65FJjbVTTQrA2EFg6L"
+      ]
+    },
+    "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol": {
+      "keccak256": "0x5f7e4076e175393767754387c962926577f1660dd9b810187b9002407656be72",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://7d533a1c97cd43a57cd9c465f7ee8dd0e39ae93a8fb8ff8e5303a356b081cdcc",
+        "dweb:/ipfs/QmVBEei6aTnvYNZp2CHYVNKyZS4q1KkjANfY39WVXZXVoT"
+      ]
+    },
+    "src/IPixotchi.sol": {
+      "keccak256": "0x9afbc570defce416ec0322d2ee73ce854ca7837e5096b26befdf15748f22385b",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://04bfbf27cbb255bf5eeb1cd2c0a776d2a32fc3e4ee532fd2414eb30ec33242fc",
+        "dweb:/ipfs/QmfTVZ4ghm9UEKz29wTpHSPAKYCg6X6UfgsvgdFReM8bmQ"
+      ]
+    },
+    "src/nft/Renderer.sol": {
+      "keccak256": "0xfe5f3d968b71904d78e9d24381f612d507ea80ad1baaeac63e06f8b02704e0b8",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://77f60f8155d7098564f04b3b43f31d22275013f82da2618e133460f7391270e4",
+        "dweb:/ipfs/QmacF57DNj2mygCKuuUPpBZMEw212NwY1yQkvLqRLere4z"
+      ]
+    }
+  },
+  "version": 1
+}

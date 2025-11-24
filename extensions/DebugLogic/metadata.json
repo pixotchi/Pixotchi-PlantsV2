@@ -1,0 +1,336 @@
+{
+  "compiler": {
+    "version": "0.8.23+commit.f704f362"
+  },
+  "language": "Solidity",
+  "output": {
+    "abi": [
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "beforeIdsLength",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "afterIdsLength",
+            "type": "uint256"
+          }
+        ],
+        "name": "DuplicateTokenIdsRemoved",
+        "type": "event"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          }
+        ],
+        "name": "debugGetBurnedPlants",
+        "outputs": [
+          {
+            "internalType": "bool",
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          }
+        ],
+        "name": "debugGetIdsByOwner",
+        "outputs": [
+          {
+            "internalType": "uint32[]",
+            "name": "",
+            "type": "uint32[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          }
+        ],
+        "name": "debugGetIdsByOwnerLength",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint32",
+            "name": "id",
+            "type": "uint32"
+          }
+        ],
+        "name": "debugGetOwnerIndexById",
+        "outputs": [
+          {
+            "internalType": "uint32",
+            "name": "",
+            "type": "uint32"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "burned",
+            "type": "bool"
+          }
+        ],
+        "name": "debugSetBurnedPlants",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint32[]",
+            "name": "ids",
+            "type": "uint32[]"
+          }
+        ],
+        "name": "debugSetIdsByOwner",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint32",
+            "name": "id",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "index",
+            "type": "uint32"
+          }
+        ],
+        "name": "debugSetOwnerIndexById",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          }
+        ],
+        "name": "removeDuplicateTokenIds",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    ],
+    "devdoc": {
+      "kind": "dev",
+      "methods": {
+        "removeDuplicateTokenIds(address)": {
+          "details": "Removes duplicate token IDs from the owner's list of tokens.",
+          "params": {
+            "owner": "The address of the owner."
+          }
+        }
+      },
+      "version": 1
+    },
+    "userdoc": {
+      "kind": "user",
+      "methods": {},
+      "version": 1
+    }
+  },
+  "settings": {
+    "compilationTarget": {
+      "src/game/DebugLogic.sol": "DebugLogic"
+    },
+    "evmVersion": "paris",
+    "libraries": {},
+    "metadata": {
+      "bytecodeHash": "ipfs"
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "remappings": [
+      ":@chainlink/=lib/contracts/lib/chainlink/",
+      ":@ds-test/=lib/contracts/lib/ds-test/src/",
+      ":@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/",
+      ":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+      ":@rari-capital/solmate/=lib/contracts/lib/seaport/lib/solmate/",
+      ":@seaport/=lib/contracts/lib/seaport/contracts/",
+      ":@solady/=lib/contracts/lib/solady/",
+      ":@std/=lib/contracts/lib/forge-std/src/",
+      ":@thirdweb-dev/=node_modules/@thirdweb-dev/",
+      ":@thirdweb-dev/dynamic-contracts/=lib/contracts/lib/dynamic-contracts/",
+      ":ERC721A-Upgradeable/=lib/contracts/lib/ERC721A-Upgradeable/contracts/",
+      ":ERC721A/=lib/contracts/lib/ERC721A/contracts/",
+      ":chainlink/=lib/contracts/lib/chainlink/contracts/",
+      ":contracts/=lib/contracts/contracts/",
+      ":ds-test/=lib/contracts/lib/ds-test/src/",
+      ":dynamic-contracts/=lib/dynamic-contracts/src/",
+      ":erc4626-tests/=lib/openzeppelin-contracts-upgradeable/lib/erc4626-tests/",
+      ":erc721a-upgradeable/=lib/contracts/lib/ERC721A-Upgradeable/",
+      ":erc721a/=lib/contracts/lib/ERC721A/",
+      ":forge-std/=lib/forge-std/src/",
+      ":lib/sstore2/=lib/contracts/lib/dynamic-contracts/lib/sstore2/",
+      ":murky/=lib/contracts/lib/murky/",
+      ":openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/",
+      ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+      ":openzeppelin/=lib/contracts/lib/openzeppelin-contracts-upgradeable/contracts/",
+      ":seaport-core/=lib/contracts/lib/seaport-core/src/",
+      ":seaport-sol/=lib/contracts/lib/seaport-sol/src/",
+      ":seaport-types/=lib/contracts/lib/seaport-types/src/",
+      ":seaport/=lib/contracts/lib/seaport/",
+      ":solady/=lib/contracts/lib/solady/src/",
+      ":solarray/=lib/contracts/lib/seaport/lib/solarray/src/",
+      ":solmate/=lib/contracts/lib/seaport/lib/solmate/src/",
+      ":sstore2/=lib/dynamic-contracts/lib/sstore2/contracts/",
+      ":thirdweb-contracts/=lib/thirdweb-contracts/contracts/"
+    ]
+  },
+  "sources": {
+    "lib/contracts/contracts/extension/interface/IPermissions.sol": {
+      "keccak256": "0xc0cd1f87bac474a06f85e2b341b9b57662aee957fc24180d42c872481c2f2ae3",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://7dec3eed451d63867531d693f0be3279fa2c9aef3130f0826c3520c06820fa5d",
+        "dweb:/ipfs/QmTYANrcPdd9SCe99DWsKJ19evNRQKQGZeoS1Keew4M2cS"
+      ]
+    },
+    "lib/contracts/contracts/extension/interface/IPermissionsEnumerable.sol": {
+      "keccak256": "0x2e742c18a4481bad41d56424cd16c52def2fb415f69e5fb5f67d8d979300ff95",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://d9be33bb865e3e82aca540a3e38cbc2bf2e431f9d1bf39c50d6c757e7b7bf3ee",
+        "dweb:/ipfs/Qmdad1Xqj5SQ44Bk4bwD2uA36XnGHtqnVYSomKZQvnUBVG"
+      ]
+    },
+    "lib/contracts/contracts/extension/upgradeable/Permissions.sol": {
+      "keccak256": "0xc543a8f28fd99b1c4f313fc74f1549e96a645681e11d50e4de54f6a7a6f1d3e9",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://61b0641aed031275f1cca7fa202adf9535ae2295fcde96544c059f770caf0080",
+        "dweb:/ipfs/QmfQJDmhTgm3qVxN6jN3diZyCKYBXuEYwb247FF1KKwxdL"
+      ]
+    },
+    "lib/contracts/contracts/extension/upgradeable/PermissionsEnumerable.sol": {
+      "keccak256": "0xd69a09eb5078dc85e9fb3e59f578c267e7694f2bc9f995461225b596af93b07f",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://08fa417baf97ef109876f76a0040e28d9c7b9edafb52189352642790f10a335c",
+        "dweb:/ipfs/QmZDMmbLDuG48VUZLvAZnkUuNexyZ3ys1hoqFGn7hvtNyc"
+      ]
+    },
+    "lib/contracts/contracts/lib/Strings.sol": {
+      "keccak256": "0xd8fcca4db8f1678a124ae0d3b4da6c29e9737e5ae03f90f18b84261ae4499568",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://ed0d23694c31613645904cc5d6f3e08ecd34063aeb5bd23ebc9a8223a67f91fb",
+        "dweb:/ipfs/QmTf9WBdvzU2dDDTqeSn1g85AkXTe8MfN1pdyaVzm15Cdb"
+      ]
+    },
+    "src/IPixotchi.sol": {
+      "keccak256": "0x9afbc570defce416ec0322d2ee73ce854ca7837e5096b26befdf15748f22385b",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://04bfbf27cbb255bf5eeb1cd2c0a776d2a32fc3e4ee532fd2414eb30ec33242fc",
+        "dweb:/ipfs/QmfTVZ4ghm9UEKz29wTpHSPAKYCg6X6UfgsvgdFReM8bmQ"
+      ]
+    },
+    "src/IToken.sol": {
+      "keccak256": "0x9976d0840482fb0aca480ba1f9ba1295e9a658fcd9c8be965bf0c12a4fcaac3b",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://898fed790e604188091056c4494b5e4b98cdc0e37c694abbcb3a41c3439be0aa",
+        "dweb:/ipfs/QmdmxCeZBwpWLctzVWoaKfZv3bpbR5f2vckwQdYyGHxnFt"
+      ]
+    },
+    "src/game/DebugLogic.sol": {
+      "keccak256": "0xf40ff10dc403a491428257d9b2a710947259f353baa398353e71b1b500324c75",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://9e9338dd7d507d1ed3da614a857f1ae7a4a6cf07ce808e5e9c30c3667fc00109",
+        "dweb:/ipfs/QmWzuxGTccUv6YXpq6WMztqf8D52ALZi6TWrSRqWPfRVQv"
+      ]
+    },
+    "src/game/DebugStorage.sol": {
+      "keccak256": "0x12a6540932928d874654bfc66e868260d7a39d39732cc8bc0152f8566380bb43",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://7f0dfc935ae179e645a35c8dcf5d7ff611d213a3e7390fb0976a908081760610",
+        "dweb:/ipfs/QmRAovD97i9WDxqYagaV4j93xp2wck6aNcTVhuZ6q1epfJ"
+      ]
+    },
+    "src/game/GameStorage.sol": {
+      "keccak256": "0xa127525b654412b55d423b02cb2c6a09b560ca3e05f2a785a5d0ed6215a3ad7c",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://2c3383e31ae5fc8c9af2b3c3f71dc01d60ac378c05cd6b52c663f4b743dbc179",
+        "dweb:/ipfs/QmSmbhqZ1u8JmLWnKSGNmfzgsNkSgZWv1bEXrHEE9G3C5A"
+      ]
+    },
+    "src/utils/PixotchiExtensionPermission.sol": {
+      "keccak256": "0x67ccf2a6c0d129cc7b1cf4d912bfc885bbe699ae4e815073c0eb70c31755f614",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://98ea966bdee679543597fffb07663f89d679b4c26099ed330d36915aad401db2",
+        "dweb:/ipfs/QmXfmZkiQXMBpXHPFJxvhg7CtQVdNrH6A7qG9RW2M67QT7"
+      ]
+    }
+  },
+  "version": 1
+}

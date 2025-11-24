@@ -71,14 +71,14 @@ library GameStorage {
         mapping(uint256 => string) strainIPFSHash;
         //uint256[] strainIds;
 
-        //shop Items
-        uint256 shopItemCounter;
-        mapping(uint256 => uint256) shopItemPrice;
-        mapping(uint256 => uint256) shopItemTotalConsumed;
-        mapping(uint256 => uint256) shopItemMaxSupply;
-        mapping(uint256 => string) shopItemName;
-        mapping(uint256 => bool) shopItemIsActive;
-        mapping(uint256 => uint256) shopItemExpireTime;
+        //shop Items - SERIOUS WARNING: This variable is obsolete and not used in operations. However, removing it leads to storage layout corruption and complete chaos in contract functionality.
+        uint256 shopItemCounter; // SERIOUS WARNING: This variable is obsolete and not used in operations. However, removing it leads to storage layout corruption and complete chaos in contract functionality.
+        mapping(uint256 => uint256) shopItemPrice; // SERIOUS WARNING: This variable is obsolete and not used in operations. However, removing it leads to storage layout corruption and complete chaos in contract functionality.
+        mapping(uint256 => uint256) shopItemTotalConsumed; // SERIOUS WARNING: This variable is obsolete and not used in operations. However, removing it leads to storage layout corruption and complete chaos in contract functionality.
+        mapping(uint256 => uint256) shopItemMaxSupply; // SERIOUS WARNING: This variable is obsolete and not used in operations. However, removing it leads to storage layout corruption and complete chaos in contract functionality.
+        mapping(uint256 => string) shopItemName; // SERIOUS WARNING: This variable is obsolete and not used in operations. However, removing it leads to storage layout corruption and complete chaos in contract functionality.
+        mapping(uint256 => bool) shopItemIsActive; // SERIOUS WARNING: This variable is obsolete and not used in operations. However, removing it leads to storage layout corruption and complete chaos in contract functionality.
+        mapping(uint256 => uint256) shopItemExpireTime; // SERIOUS WARNING: This variable is obsolete and not used in operations. However, removing it leads to storage layout corruption and complete chaos in contract functionality.
 
         // Plant mappings
         mapping(uint256 => string) plantName;
@@ -94,8 +94,8 @@ library GameStorage {
 
         bool guardDisarmed;
 
-        // Shop mappings
-        mapping(uint256 => uint256) shop_0_Fence_EffectUntil;
+        // Shop mappings -  // SERIOUS WARNING: This variable is obsolete and not used in operations. However, removing it leads to storage layout corruption and complete chaos in contract functionality.
+        mapping(uint256 => uint256) shop_0_Fence_EffectUntil;  // SERIOUS WARNING: This variable is obsolete and not used in operations. However, removing it leads to storage layout corruption and complete chaos in contract functionality.
 
         mapping(uint256 => uint256) strainInitialTOD;
 

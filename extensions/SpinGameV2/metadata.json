@@ -1,0 +1,681 @@
+{
+  "compiler": {
+    "version": "0.8.23+commit.f704f362"
+  },
+  "language": "Solidity",
+  "output": {
+    "abi": [
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "uint8",
+            "name": "version",
+            "type": "uint8"
+          }
+        ],
+        "name": "Initialized",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "points",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "timeExtension",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "gameName",
+            "type": "string"
+          }
+        ],
+        "name": "Played",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "int256",
+            "name": "points",
+            "type": "int256"
+          },
+          {
+            "indexed": false,
+            "internalType": "int256",
+            "name": "timeExtension",
+            "type": "int256"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "gameName",
+            "type": "string"
+          }
+        ],
+        "name": "PlayedV2",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "uint256",
+            "name": "nftId",
+            "type": "uint256"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "player",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "bytes32",
+            "name": "commitHash",
+            "type": "bytes32"
+          }
+        ],
+        "name": "SpinGameV2Committed",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "uint256",
+            "name": "nftId",
+            "type": "uint256"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "player",
+            "type": "address"
+          }
+        ],
+        "name": "SpinGameV2Forfeited",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "uint256",
+            "name": "nftId",
+            "type": "uint256"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "player",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "internalType": "uint256",
+            "name": "rewardIndex",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "int256",
+            "name": "pointsDelta",
+            "type": "int256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "timeAdded",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "leafAmount",
+            "type": "uint256"
+          }
+        ],
+        "name": "SpinGameV2Played",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "uint256",
+            "name": "index",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "int256",
+            "name": "pointDelta",
+            "type": "int256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "timeExtension",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "leafAmount",
+            "type": "uint256"
+          }
+        ],
+        "name": "SpinGameV2RewardUpdated",
+        "type": "event"
+      },
+      {
+        "inputs": [],
+        "name": "SpinGameV2Initialize",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "getCoolDownTime",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "getLeafToken",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "index",
+            "type": "uint256"
+          }
+        ],
+        "name": "getReward",
+        "outputs": [
+          {
+            "internalType": "int256",
+            "name": "pointDelta",
+            "type": "int256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timeExtension",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "leafAmount",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "getStarCost",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "newCoolDownTime",
+            "type": "uint256"
+          }
+        ],
+        "name": "setCoolDownTime",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          }
+        ],
+        "name": "setLeafToken",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "index",
+            "type": "uint256"
+          },
+          {
+            "internalType": "int256",
+            "name": "pointDelta",
+            "type": "int256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timeExtension",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "leafAmount",
+            "type": "uint256"
+          }
+        ],
+        "name": "setReward",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "index",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "leafAmount",
+            "type": "uint256"
+          }
+        ],
+        "name": "setRewardLeaf",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "index",
+            "type": "uint256"
+          },
+          {
+            "internalType": "int256",
+            "name": "pointDelta",
+            "type": "int256"
+          }
+        ],
+        "name": "setRewardPoints",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "index",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timeExtension",
+            "type": "uint256"
+          }
+        ],
+        "name": "setRewardTime",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "newStarCost",
+            "type": "uint256"
+          }
+        ],
+        "name": "setStarCost",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "nftId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "commitHash",
+            "type": "bytes32"
+          }
+        ],
+        "name": "spinGameV2Commit",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "nftId",
+            "type": "uint256"
+          }
+        ],
+        "name": "spinGameV2Forfeit",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "nftId",
+            "type": "uint256"
+          }
+        ],
+        "name": "spinGameV2GetCoolDownTimePerNFT",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "nftId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "revealSecret",
+            "type": "bytes32"
+          }
+        ],
+        "name": "spinGameV2Play",
+        "outputs": [
+          {
+            "internalType": "int256",
+            "name": "pointsDelta",
+            "type": "int256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timeAdded",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "leafAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "rewardIndex",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    ],
+    "devdoc": {
+      "events": {
+        "Initialized(uint8)": {
+          "details": "Triggered when the contract has been initialized or reinitialized."
+        },
+        "SpinGameV2Committed(uint256,address,bytes32)": {
+          "details": "Emitted when a player commits to a spin."
+        },
+        "SpinGameV2Forfeited(uint256,address)": {
+          "details": "Emitted when a pending spin is forfeited without reveal."
+        },
+        "SpinGameV2Played(uint256,address,uint256,int256,uint256,uint256)": {
+          "details": "Emitted after a play with the resolved reward details."
+        },
+        "SpinGameV2RewardUpdated(uint256,int256,uint256,uint256)": {
+          "details": "Emitted when the game reward configuration is updated."
+        }
+      },
+      "kind": "dev",
+      "methods": {
+        "SpinGameV2Initialize()": {
+          "details": "Base initialize function. Seed with default configuration."
+        }
+      },
+      "version": 1
+    },
+    "userdoc": {
+      "kind": "user",
+      "methods": {},
+      "version": 1
+    }
+  },
+  "settings": {
+    "compilationTarget": {
+      "src/minigames/SpinGameV2.sol": "SpinGameV2"
+    },
+    "evmVersion": "shanghai",
+    "libraries": {},
+    "metadata": {
+      "bytecodeHash": "ipfs"
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "remappings": []
+  },
+  "sources": {
+    "lib/contracts/contracts/extension/interface/IPermissions.sol": {
+      "keccak256": "0xc0cd1f87bac474a06f85e2b341b9b57662aee957fc24180d42c872481c2f2ae3",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://7dec3eed451d63867531d693f0be3279fa2c9aef3130f0826c3520c06820fa5d",
+        "dweb:/ipfs/QmTYANrcPdd9SCe99DWsKJ19evNRQKQGZeoS1Keew4M2cS"
+      ]
+    },
+    "lib/contracts/contracts/extension/interface/IPermissionsEnumerable.sol": {
+      "keccak256": "0x2e742c18a4481bad41d56424cd16c52def2fb415f69e5fb5f67d8d979300ff95",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://d9be33bb865e3e82aca540a3e38cbc2bf2e431f9d1bf39c50d6c757e7b7bf3ee",
+        "dweb:/ipfs/Qmdad1Xqj5SQ44Bk4bwD2uA36XnGHtqnVYSomKZQvnUBVG"
+      ]
+    },
+    "lib/contracts/contracts/extension/upgradeable/Initializable.sol": {
+      "keccak256": "0x359ee85a4b1b32f7e875ff4742ce3b347a036e2d065675494889e9753fc6f64a",
+      "license": "Apache 2.0",
+      "urls": [
+        "bzz-raw://daa0a7f80cf27545e7040c2bc32486c4d9a8a8a75a7cde5ad6ea4b85f75f6fbf",
+        "dweb:/ipfs/QmZmKPCTUUKN8BKo2aCGFRYVAkZtEs3R6Ysx1m3Kibv4Ai"
+      ]
+    },
+    "lib/contracts/contracts/extension/upgradeable/Permissions.sol": {
+      "keccak256": "0xc543a8f28fd99b1c4f313fc74f1549e96a645681e11d50e4de54f6a7a6f1d3e9",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://61b0641aed031275f1cca7fa202adf9535ae2295fcde96544c059f770caf0080",
+        "dweb:/ipfs/QmfQJDmhTgm3qVxN6jN3diZyCKYBXuEYwb247FF1KKwxdL"
+      ]
+    },
+    "lib/contracts/contracts/extension/upgradeable/PermissionsEnumerable.sol": {
+      "keccak256": "0xd69a09eb5078dc85e9fb3e59f578c267e7694f2bc9f995461225b596af93b07f",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://08fa417baf97ef109876f76a0040e28d9c7b9edafb52189352642790f10a335c",
+        "dweb:/ipfs/QmZDMmbLDuG48VUZLvAZnkUuNexyZ3ys1hoqFGn7hvtNyc"
+      ]
+    },
+    "lib/contracts/contracts/extension/upgradeable/ReentrancyGuard.sol": {
+      "keccak256": "0x736596906d22abd0e2d0443298dd1b6d1a002a77329f25b55f3dd3a14a183728",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://a0efbbf4ffca8ec9b9669f1cbee3960dada7da091c52b5b083e76358a5ee5b6b",
+        "dweb:/ipfs/QmaXkMvCeZBQtaG1tpjs9mBQVxKiJSUGEZ6v36iWetvRAR"
+      ]
+    },
+    "lib/contracts/contracts/lib/Address.sol": {
+      "keccak256": "0xa1e2c06c07422ce6f27ab1c4d4ce62bdc3200e082b735b5e3a75c2e7b61cbc4f",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://cc90229c980f78c582a05386d4621172c7d20dec9ad528a5bf1d59b243fff0a5",
+        "dweb:/ipfs/QmcZZLaZ9XU1gWj7b9EBZftPoED3pKEvvFGhS5yBvtMPtn"
+      ]
+    },
+    "lib/contracts/contracts/lib/Strings.sol": {
+      "keccak256": "0xd8fcca4db8f1678a124ae0d3b4da6c29e9737e5ae03f90f18b84261ae4499568",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://ed0d23694c31613645904cc5d6f3e08ecd34063aeb5bd23ebc9a8223a67f91fb",
+        "dweb:/ipfs/QmTf9WBdvzU2dDDTqeSn1g85AkXTe8MfN1pdyaVzm15Cdb"
+      ]
+    },
+    "src/IPixotchi.sol": {
+      "keccak256": "0x9afbc570defce416ec0322d2ee73ce854ca7837e5096b26befdf15748f22385b",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://04bfbf27cbb255bf5eeb1cd2c0a776d2a32fc3e4ee532fd2414eb30ec33242fc",
+        "dweb:/ipfs/QmfTVZ4ghm9UEKz29wTpHSPAKYCg6X6UfgsvgdFReM8bmQ"
+      ]
+    },
+    "src/IToken.sol": {
+      "keccak256": "0x9976d0840482fb0aca480ba1f9ba1295e9a658fcd9c8be965bf0c12a4fcaac3b",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://898fed790e604188091056c4494b5e4b98cdc0e37c694abbcb3a41c3439be0aa",
+        "dweb:/ipfs/QmdmxCeZBwpWLctzVWoaKfZv3bpbR5f2vckwQdYyGHxnFt"
+      ]
+    },
+    "src/game/GameStorage.sol": {
+      "keccak256": "0xa127525b654412b55d423b02cb2c6a09b560ca3e05f2a785a5d0ed6215a3ad7c",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://2c3383e31ae5fc8c9af2b3c3f71dc01d60ac378c05cd6b52c663f4b743dbc179",
+        "dweb:/ipfs/QmSmbhqZ1u8JmLWnKSGNmfzgsNkSgZWv1bEXrHEE9G3C5A"
+      ]
+    },
+    "src/minigames/SpinGameV2.sol": {
+      "keccak256": "0xbe4cbcfbb6025ee93406757309e025d5b2c09edbef0c2f06dc4a069868b4c81f",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://0f490cbb3a43a8d8a27e2e2d915d2e8f79fc2182b15d25ddac547739f1170a06",
+        "dweb:/ipfs/QmY8YmKLC3dMubXUUsvgUUi4RSdpqxJ3TdHtQNegMr9rPN"
+      ]
+    },
+    "src/minigames/SpinGameV2Storage.sol": {
+      "keccak256": "0x445007de658b3f3ee3ef06d8e656c28a6c61115b8121b71b3ee4c59bd2f024be",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://8013b533f0f187ea82bc6f9b31ad8ee81547f472ff10cdce469539a3cc8fa403",
+        "dweb:/ipfs/QmNkqHPXNPMpDWW3cD6EeeVhMFgKCv8dzqR3oBZ8BCLMkv"
+      ]
+    },
+    "src/minigames/lib/contracts/contracts/eip/interface/IERC721.sol": {
+      "keccak256": "0x00754fd93079350acb6b1d0451320cc4b4252bf7990aa39cde29abb5ca4a60ea",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://c91392521b426c02b342d4ba0f2c5cad2c6074e1be90203c9525751dd23b36bf",
+        "dweb:/ipfs/QmNjjCttJ9A39HMn3FTMqjQN5y7UoQrPUhQ7Nd8Ci7jFZj"
+      ]
+    },
+    "src/minigames/lib/contracts/contracts/eip/interface/IERC721A.sol": {
+      "keccak256": "0xba8dd210c2a35a4e82cfc1e6586a3033fe337e40c23798793d7c8cd31694e0cd",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://368eedd471b0aa41e83c2233aba9939ce25daae28de6b5ab427399ac91140eb8",
+        "dweb:/ipfs/QmeMQTGpAGN4YZV8GPjrZr4zUtQ9Macsaset3FFY5CBVP5"
+      ]
+    },
+    "src/minigames/lib/contracts/contracts/eip/interface/IERC721Metadata.sol": {
+      "keccak256": "0x7f80ade420dd9bf39c4dbca10484b625e2096ee332c22a00e658148f170ee5fb",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://7bcac290ef069b09e887e6c80af6a77c23e935bc271622585f61339779ac485e",
+        "dweb:/ipfs/QmbqzDQ2pCtKrJcD7LJcBDUX6nfmx2YtcTDAhi3noX5rc4"
+      ]
+    },
+    "src/utils/FixedPointMathLib.sol": {
+      "keccak256": "0x01c2d92bdd1df4e0ed63062e0d97cb3b0af4fc05e442872af4f199d061732216",
+      "license": "AGPL-3.0-only",
+      "urls": [
+        "bzz-raw://a6fbfabb3503dd8c2cc45e03e4ee50fa23aac24745db4a57f9b13fc82397a30d",
+        "dweb:/ipfs/QmWz8gjApivQn3JxXevb82tctD9ijS6DM4rnx2WMUvtaRZ"
+      ]
+    },
+    "src/utils/PixotchiExtensionPermission.sol": {
+      "keccak256": "0x67ccf2a6c0d129cc7b1cf4d912bfc885bbe699ae4e815073c0eb70c31755f614",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://98ea966bdee679543597fffb07663f89d679b4c26099ed330d36915aad401db2",
+        "dweb:/ipfs/QmXfmZkiQXMBpXHPFJxvhg7CtQVdNrH6A7qG9RW2M67QT7"
+      ]
+    }
+  },
+  "version": 1
+}

@@ -1,0 +1,634 @@
+{
+  "compiler": {
+    "version": "0.8.28+commit.7893614a"
+  },
+  "language": "Solidity",
+  "output": {
+    "abi": [
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "uint8",
+            "name": "version",
+            "type": "uint8"
+          }
+        ],
+        "name": "Initialized",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "nftId",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "address",
+            "name": "giver",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "itemId",
+            "type": "uint256"
+          }
+        ],
+        "name": "ItemConsumed",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "points",
+            "type": "uint256"
+          }
+        ],
+        "name": "ItemCreated",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "nftId",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          }
+        ],
+        "name": "Revived",
+        "type": "event"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_Id",
+            "type": "uint256"
+          }
+        ],
+        "name": "Revive",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "nftId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "itemId",
+            "type": "uint256"
+          }
+        ],
+        "name": "buyAccessory",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "price",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "points",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timeExtension",
+            "type": "uint256"
+          }
+        ],
+        "name": "createItem",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+              },
+              {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "points",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "timeExtension",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct IGarden.FullItem[]",
+            "name": "items",
+            "type": "tuple[]"
+          }
+        ],
+        "name": "createItems",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+              },
+              {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "points",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "timeExtension",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct IGarden.FullItem[]",
+            "name": "updates",
+            "type": "tuple[]"
+          }
+        ],
+        "name": "editGardenItems",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_price",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_points",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "_name",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_timeExtension",
+            "type": "uint256"
+          }
+        ],
+        "name": "editItem",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "getAllGardenItem",
+        "outputs": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+              },
+              {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "points",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "timeExtension",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct IGarden.FullItem[]",
+            "name": "",
+            "type": "tuple[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "itemId",
+            "type": "uint256"
+          }
+        ],
+        "name": "getGardenItem",
+        "outputs": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+              },
+              {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "points",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "timeExtension",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct IGarden.FullItem",
+            "name": "",
+            "type": "tuple"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "getRevivePrice",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "initializeGardenLogic",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "itemId",
+            "type": "uint256"
+          }
+        ],
+        "name": "itemExists",
+        "outputs": [
+          {
+            "internalType": "bool",
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_Revive_Price",
+            "type": "uint256"
+          }
+        ],
+        "name": "setRevivePrice",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    ],
+    "devdoc": {
+      "events": {
+        "Initialized(uint8)": {
+          "details": "Triggered when the contract has been initialized or reinitialized."
+        }
+      },
+      "kind": "dev",
+      "methods": {},
+      "version": 1
+    },
+    "userdoc": {
+      "kind": "user",
+      "methods": {},
+      "version": 1
+    }
+  },
+  "settings": {
+    "compilationTarget": {
+      "src/garden/GardenLogic.sol": "GardenLogic"
+    },
+    "evmVersion": "paris",
+    "libraries": {},
+    "metadata": {
+      "bytecodeHash": "ipfs"
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "remappings": [
+      ":@chainlink/=lib/contracts/lib/chainlink/",
+      ":@ds-test/=lib/contracts/lib/ds-test/src/",
+      ":@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/",
+      ":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+      ":@rari-capital/solmate/=lib/contracts/lib/seaport/lib/solmate/",
+      ":@seaport/=lib/contracts/lib/seaport/contracts/",
+      ":@solady/=lib/contracts/lib/solady/",
+      ":@std/=lib/contracts/lib/forge-std/src/",
+      ":@thirdweb-dev/=node_modules/@thirdweb-dev/",
+      ":@thirdweb-dev/dynamic-contracts/=lib/contracts/lib/dynamic-contracts/",
+      ":ERC721A-Upgradeable/=lib/contracts/lib/ERC721A-Upgradeable/contracts/",
+      ":ERC721A/=lib/contracts/lib/ERC721A/contracts/",
+      ":chainlink/=lib/contracts/lib/chainlink/contracts/",
+      ":contracts/=lib/contracts/contracts/",
+      ":ds-test/=lib/contracts/lib/ds-test/src/",
+      ":dynamic-contracts/=lib/dynamic-contracts/src/",
+      ":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/",
+      ":erc721a-upgradeable/=lib/contracts/lib/ERC721A-Upgradeable/",
+      ":erc721a/=lib/contracts/lib/ERC721A/",
+      ":forge-std/=lib/contracts/lib/forge-std/src/",
+      ":halmos-cheatcodes/=lib/openzeppelin-contracts/lib/halmos-cheatcodes/src/",
+      ":lib/sstore2/=lib/contracts/lib/dynamic-contracts/lib/sstore2/",
+      ":murky/=lib/contracts/lib/murky/src/",
+      ":openzeppelin-contracts-upgradeable/=lib/contracts/lib/openzeppelin-contracts-upgradeable/",
+      ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+      ":openzeppelin/=lib/contracts/lib/openzeppelin-contracts-upgradeable/contracts/",
+      ":seaport-core/=lib/contracts/lib/seaport-core/src/",
+      ":seaport-sol/=lib/contracts/lib/seaport-sol/src/",
+      ":seaport-types/=lib/contracts/lib/seaport-types/src/",
+      ":seaport/=lib/contracts/lib/seaport/",
+      ":solady/=lib/contracts/lib/solady/src/",
+      ":solarray/=lib/contracts/lib/seaport/lib/solarray/src/",
+      ":solmate/=lib/contracts/lib/seaport/lib/solmate/src/",
+      ":sstore2/=lib/dynamic-contracts/lib/sstore2/contracts/"
+    ]
+  },
+  "sources": {
+    "lib/contracts/contracts/eip/interface/IERC721.sol": {
+      "keccak256": "0x00754fd93079350acb6b1d0451320cc4b4252bf7990aa39cde29abb5ca4a60ea",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://c91392521b426c02b342d4ba0f2c5cad2c6074e1be90203c9525751dd23b36bf",
+        "dweb:/ipfs/QmNjjCttJ9A39HMn3FTMqjQN5y7UoQrPUhQ7Nd8Ci7jFZj"
+      ]
+    },
+    "lib/contracts/contracts/eip/interface/IERC721A.sol": {
+      "keccak256": "0xba8dd210c2a35a4e82cfc1e6586a3033fe337e40c23798793d7c8cd31694e0cd",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://368eedd471b0aa41e83c2233aba9939ce25daae28de6b5ab427399ac91140eb8",
+        "dweb:/ipfs/QmeMQTGpAGN4YZV8GPjrZr4zUtQ9Macsaset3FFY5CBVP5"
+      ]
+    },
+    "lib/contracts/contracts/eip/interface/IERC721Metadata.sol": {
+      "keccak256": "0x7f80ade420dd9bf39c4dbca10484b625e2096ee332c22a00e658148f170ee5fb",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://7bcac290ef069b09e887e6c80af6a77c23e935bc271622585f61339779ac485e",
+        "dweb:/ipfs/QmbqzDQ2pCtKrJcD7LJcBDUX6nfmx2YtcTDAhi3noX5rc4"
+      ]
+    },
+    "lib/contracts/contracts/extension/interface/IPermissions.sol": {
+      "keccak256": "0xc0cd1f87bac474a06f85e2b341b9b57662aee957fc24180d42c872481c2f2ae3",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://7dec3eed451d63867531d693f0be3279fa2c9aef3130f0826c3520c06820fa5d",
+        "dweb:/ipfs/QmTYANrcPdd9SCe99DWsKJ19evNRQKQGZeoS1Keew4M2cS"
+      ]
+    },
+    "lib/contracts/contracts/extension/interface/IPermissionsEnumerable.sol": {
+      "keccak256": "0x2e742c18a4481bad41d56424cd16c52def2fb415f69e5fb5f67d8d979300ff95",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://d9be33bb865e3e82aca540a3e38cbc2bf2e431f9d1bf39c50d6c757e7b7bf3ee",
+        "dweb:/ipfs/Qmdad1Xqj5SQ44Bk4bwD2uA36XnGHtqnVYSomKZQvnUBVG"
+      ]
+    },
+    "lib/contracts/contracts/extension/upgradeable/Initializable.sol": {
+      "keccak256": "0x359ee85a4b1b32f7e875ff4742ce3b347a036e2d065675494889e9753fc6f64a",
+      "license": "Apache 2.0",
+      "urls": [
+        "bzz-raw://daa0a7f80cf27545e7040c2bc32486c4d9a8a8a75a7cde5ad6ea4b85f75f6fbf",
+        "dweb:/ipfs/QmZmKPCTUUKN8BKo2aCGFRYVAkZtEs3R6Ysx1m3Kibv4Ai"
+      ]
+    },
+    "lib/contracts/contracts/extension/upgradeable/Permissions.sol": {
+      "keccak256": "0xc543a8f28fd99b1c4f313fc74f1549e96a645681e11d50e4de54f6a7a6f1d3e9",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://61b0641aed031275f1cca7fa202adf9535ae2295fcde96544c059f770caf0080",
+        "dweb:/ipfs/QmfQJDmhTgm3qVxN6jN3diZyCKYBXuEYwb247FF1KKwxdL"
+      ]
+    },
+    "lib/contracts/contracts/extension/upgradeable/PermissionsEnumerable.sol": {
+      "keccak256": "0xd69a09eb5078dc85e9fb3e59f578c267e7694f2bc9f995461225b596af93b07f",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://08fa417baf97ef109876f76a0040e28d9c7b9edafb52189352642790f10a335c",
+        "dweb:/ipfs/QmZDMmbLDuG48VUZLvAZnkUuNexyZ3ys1hoqFGn7hvtNyc"
+      ]
+    },
+    "lib/contracts/contracts/extension/upgradeable/ReentrancyGuard.sol": {
+      "keccak256": "0x736596906d22abd0e2d0443298dd1b6d1a002a77329f25b55f3dd3a14a183728",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://a0efbbf4ffca8ec9b9669f1cbee3960dada7da091c52b5b083e76358a5ee5b6b",
+        "dweb:/ipfs/QmaXkMvCeZBQtaG1tpjs9mBQVxKiJSUGEZ6v36iWetvRAR"
+      ]
+    },
+    "lib/contracts/contracts/lib/Address.sol": {
+      "keccak256": "0xa1e2c06c07422ce6f27ab1c4d4ce62bdc3200e082b735b5e3a75c2e7b61cbc4f",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://cc90229c980f78c582a05386d4621172c7d20dec9ad528a5bf1d59b243fff0a5",
+        "dweb:/ipfs/QmcZZLaZ9XU1gWj7b9EBZftPoED3pKEvvFGhS5yBvtMPtn"
+      ]
+    },
+    "lib/contracts/contracts/lib/Strings.sol": {
+      "keccak256": "0xd8fcca4db8f1678a124ae0d3b4da6c29e9737e5ae03f90f18b84261ae4499568",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://ed0d23694c31613645904cc5d6f3e08ecd34063aeb5bd23ebc9a8223a67f91fb",
+        "dweb:/ipfs/QmTf9WBdvzU2dDDTqeSn1g85AkXTe8MfN1pdyaVzm15Cdb"
+      ]
+    },
+    "lib/contracts/lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SafeMathUpgradeable.sol": {
+      "keccak256": "0xb1561a6950b1aaa504c8f81b7d46bccfa77ccd10de3eb865cf34b1acd5ad505e",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://9a56cb91629dacd161be24908fbf94315f3f45dd6fee8dad82b27af853cbc4ee",
+        "dweb:/ipfs/QmNfEzdf4NTpxyhzWKAmeDwwSpJ6ZjNizK3GXw3TEuTTgn"
+      ]
+    },
+    "lib/contracts/lib/solady/src/utils/SafeTransferLib.sol": {
+      "keccak256": "0xa2cde6f683e83848ef2939c2cc72a94627e64d2877079522ddee82d4c8c21666",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://768ae374ca043fcae00246186aa558357c5949b527a05cf5001cd40458ab5dd1",
+        "dweb:/ipfs/QmfM3hgxUTrMS21a1Pm3TKHc7mB8rQkCq8DPHGbwGdXPpr"
+      ]
+    },
+    "src/IPixotchi.sol": {
+      "keccak256": "0xc85e83be2129b5363ac46817d796f6ad862f65f06333099dc0bab8cd62133190",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://1a910b9e0093a4018f20186d7c6ddeec3bd934472b607d3f794cf50d5fb1f283",
+        "dweb:/ipfs/QmehGGNg9V5SpBRuFYX54nBeuxe6YX5rhGhTTTHeehTgdM"
+      ]
+    },
+    "src/IToken.sol": {
+      "keccak256": "0x9976d0840482fb0aca480ba1f9ba1295e9a658fcd9c8be965bf0c12a4fcaac3b",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://898fed790e604188091056c4494b5e4b98cdc0e37c694abbcb3a41c3439be0aa",
+        "dweb:/ipfs/QmdmxCeZBwpWLctzVWoaKfZv3bpbR5f2vckwQdYyGHxnFt"
+      ]
+    },
+    "src/game/GameStorage.sol": {
+      "keccak256": "0x1f19010ac635b6f391c3199d675a1e911932f60d9bfd230733a216ae743f3773",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://aefae1c0474130a63523e880114e9991f4e7b4b6a37fd5f03a6446cffe95a4e3",
+        "dweb:/ipfs/QmfMQeRfjDKAnTsFW33addYKjtWnLap3hDhS4hYJsBURKd"
+      ]
+    },
+    "src/garden/GardenLogic.sol": {
+      "keccak256": "0x0b4297b2489c6859d88e1d0058ba05c8ea17bba0eba37fc28d6c9fe92126f5ec",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://653898e99a31033212b9a2223840459ed9c54e5780f840c594a2cdbb1eb87ae5",
+        "dweb:/ipfs/QmNRaW3hgGxXx4psLc67iDbrfG8gvvMvuFs9pA4VM1GDgk"
+      ]
+    },
+    "src/utils/FixedPointMathLib.sol": {
+      "keccak256": "0x01c2d92bdd1df4e0ed63062e0d97cb3b0af4fc05e442872af4f199d061732216",
+      "license": "AGPL-3.0-only",
+      "urls": [
+        "bzz-raw://a6fbfabb3503dd8c2cc45e03e4ee50fa23aac24745db4a57f9b13fc82397a30d",
+        "dweb:/ipfs/QmWz8gjApivQn3JxXevb82tctD9ijS6DM4rnx2WMUvtaRZ"
+      ]
+    },
+    "src/utils/PixotchiExtensionPermission.sol": {
+      "keccak256": "0x67ccf2a6c0d129cc7b1cf4d912bfc885bbe699ae4e815073c0eb70c31755f614",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://98ea966bdee679543597fffb07663f89d679b4c26099ed330d36915aad401db2",
+        "dweb:/ipfs/QmXfmZkiQXMBpXHPFJxvhg7CtQVdNrH6A7qG9RW2M67QT7"
+      ]
+    }
+  },
+  "version": 1
+}

@@ -1,0 +1,307 @@
+{
+  "compiler": {
+    "version": "0.8.26+commit.8a97fa7a"
+  },
+  "language": "Solidity",
+  "output": {
+    "abi": [
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "uint256",
+            "name": "nftId",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "addedLifetime",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "newTotalLifetime",
+            "type": "uint256"
+          }
+        ],
+        "name": "LandToPlantAssignLifetime",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "uint256",
+            "name": "nftId",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "addedPoints",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "newTotalPoints",
+            "type": "uint256"
+          }
+        ],
+        "name": "LandToPlantAssignPoints",
+        "type": "event"
+      },
+      {
+        "inputs": [],
+        "name": "allowedCaller",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_nftId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_lifetime",
+            "type": "uint256"
+          }
+        ],
+        "name": "landToPlantAssignLifeTime",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "_newLifetime",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_nftId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_addedPoints",
+            "type": "uint256"
+          }
+        ],
+        "name": "landToPlantAssignPlantPoints",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "_newPlantPoints",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    ],
+    "devdoc": {
+      "author": "7118.eth",
+      "details": "This contract contains functions for calculating rewards, assigning points,      and managing plant lifetimes",
+      "kind": "dev",
+      "methods": {
+        "landToPlantAssignLifeTime(uint256,uint256)": {
+          "details": "Implements ILandToPlant.landToPlantAssignLifeTime",
+          "params": {
+            "_lifetime": "The lifetime value to assign",
+            "_nftId": "The ID of the NFT"
+          },
+          "returns": {
+            "_newLifetime": "The updated lifetime for the NFT"
+          }
+        },
+        "landToPlantAssignPlantPoints(uint256,uint256)": {
+          "details": "Implements ILandToPlant.landToPlantAssignPlantPoints",
+          "params": {
+            "_addedPoints": "The number of points to add",
+            "_nftId": "The ID of the NFT"
+          },
+          "returns": {
+            "_newPlantPoints": "The updated total plant points for the NFT"
+          }
+        }
+      },
+      "title": "LandToPlant",
+      "version": 1
+    },
+    "userdoc": {
+      "kind": "user",
+      "methods": {
+        "allowedCaller()": {
+          "notice": "Address of the allowed caller (temporary solution)"
+        },
+        "landToPlantAssignLifeTime(uint256,uint256)": {
+          "notice": "Assigns lifetime to an NFT"
+        },
+        "landToPlantAssignPlantPoints(uint256,uint256)": {
+          "notice": "Assigns plant points to an NFT"
+        }
+      },
+      "notice": "The extension (\"facet\") for managing plant-related operations in the game",
+      "version": 1
+    }
+  },
+  "settings": {
+    "compilationTarget": {
+      "src/land/LandToPlant.sol": "LandToPlant"
+    },
+    "evmVersion": "paris",
+    "libraries": {},
+    "metadata": {
+      "bytecodeHash": "ipfs"
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "remappings": [
+      ":@chainlink/=lib/contracts/lib/chainlink/",
+      ":@ds-test/=lib/contracts/lib/ds-test/src/",
+      ":@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/",
+      ":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+      ":@rari-capital/solmate/=lib/contracts/lib/seaport/lib/solmate/",
+      ":@seaport/=lib/contracts/lib/seaport/contracts/",
+      ":@solady/=lib/contracts/lib/solady/",
+      ":@std/=lib/contracts/lib/forge-std/src/",
+      ":@thirdweb-dev/=node_modules/@thirdweb-dev/",
+      ":@thirdweb-dev/dynamic-contracts/=lib/contracts/lib/dynamic-contracts/",
+      ":ERC721A-Upgradeable/=lib/contracts/lib/ERC721A-Upgradeable/contracts/",
+      ":ERC721A/=lib/contracts/lib/ERC721A/contracts/",
+      ":chainlink/=lib/contracts/lib/chainlink/contracts/",
+      ":contracts/=lib/contracts/contracts/",
+      ":ds-test/=lib/contracts/lib/ds-test/src/",
+      ":dynamic-contracts/=lib/dynamic-contracts/src/",
+      ":erc4626-tests/=lib/openzeppelin-contracts-upgradeable/lib/erc4626-tests/",
+      ":erc721a-upgradeable/=lib/contracts/lib/ERC721A-Upgradeable/",
+      ":erc721a/=lib/contracts/lib/ERC721A/",
+      ":forge-std/=lib/forge-std/src/",
+      ":lib/sstore2/=lib/contracts/lib/dynamic-contracts/lib/sstore2/",
+      ":murky/=lib/contracts/lib/murky/src/",
+      ":openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/",
+      ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+      ":openzeppelin/=lib/contracts/lib/openzeppelin-contracts-upgradeable/contracts/",
+      ":seaport-core/=lib/contracts/lib/seaport-core/src/",
+      ":seaport-sol/=lib/contracts/lib/seaport-sol/src/",
+      ":seaport-types/=lib/contracts/lib/seaport-types/src/",
+      ":seaport/=lib/contracts/lib/seaport/",
+      ":solady/=lib/contracts/lib/solady/src/",
+      ":solarray/=lib/contracts/lib/seaport/lib/solarray/src/",
+      ":solmate/=lib/contracts/lib/seaport/lib/solmate/src/",
+      ":sstore2/=lib/dynamic-contracts/lib/sstore2/contracts/",
+      ":thirdweb-contracts/=lib/thirdweb-contracts/contracts/"
+    ]
+  },
+  "sources": {
+    "lib/contracts/contracts/eip/interface/IERC721.sol": {
+      "keccak256": "0x00754fd93079350acb6b1d0451320cc4b4252bf7990aa39cde29abb5ca4a60ea",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://c91392521b426c02b342d4ba0f2c5cad2c6074e1be90203c9525751dd23b36bf",
+        "dweb:/ipfs/QmNjjCttJ9A39HMn3FTMqjQN5y7UoQrPUhQ7Nd8Ci7jFZj"
+      ]
+    },
+    "lib/contracts/contracts/eip/interface/IERC721A.sol": {
+      "keccak256": "0xba8dd210c2a35a4e82cfc1e6586a3033fe337e40c23798793d7c8cd31694e0cd",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://368eedd471b0aa41e83c2233aba9939ce25daae28de6b5ab427399ac91140eb8",
+        "dweb:/ipfs/QmeMQTGpAGN4YZV8GPjrZr4zUtQ9Macsaset3FFY5CBVP5"
+      ]
+    },
+    "lib/contracts/contracts/eip/interface/IERC721Metadata.sol": {
+      "keccak256": "0x7f80ade420dd9bf39c4dbca10484b625e2096ee332c22a00e658148f170ee5fb",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://7bcac290ef069b09e887e6c80af6a77c23e935bc271622585f61339779ac485e",
+        "dweb:/ipfs/QmbqzDQ2pCtKrJcD7LJcBDUX6nfmx2YtcTDAhi3noX5rc4"
+      ]
+    },
+    "src/IPixotchi.sol": {
+      "keccak256": "0x2cf7d5a810a215fd6da188b45e66d846c17c9d7749b39ba8996ea2e7374dcacd",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://ac44da861e0a3729357df1d67defc5f97f4e62b1ced06bb08f1853229ca04fd5",
+        "dweb:/ipfs/QmbSdq1pRo2YywbzmMPSwSgYDYUbQmXV4ukYuyhWVtqdGG"
+      ]
+    },
+    "src/IToken.sol": {
+      "keccak256": "0x9976d0840482fb0aca480ba1f9ba1295e9a658fcd9c8be965bf0c12a4fcaac3b",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://898fed790e604188091056c4494b5e4b98cdc0e37c694abbcb3a41c3439be0aa",
+        "dweb:/ipfs/QmdmxCeZBwpWLctzVWoaKfZv3bpbR5f2vckwQdYyGHxnFt"
+      ]
+    },
+    "src/game/GameStorage.sol": {
+      "keccak256": "0xa127525b654412b55d423b02cb2c6a09b560ca3e05f2a785a5d0ed6215a3ad7c",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://2c3383e31ae5fc8c9af2b3c3f71dc01d60ac378c05cd6b52c663f4b743dbc179",
+        "dweb:/ipfs/QmSmbhqZ1u8JmLWnKSGNmfzgsNkSgZWv1bEXrHEE9G3C5A"
+      ]
+    },
+    "src/land/ILandToPlant.sol": {
+      "keccak256": "0x1fd6c8c238d80a9af2ce23f90c1e104953e01c0fde7356cd70dbee727c3432ae",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://6a936a3d5bab11968b241248b99ff8feed0d7e4645299088ea902f8eb1a3833b",
+        "dweb:/ipfs/QmTrQbse3Mj1n717sPkV1Z3caxQBW8d2ULaVtLZGc2bFgK"
+      ]
+    },
+    "src/land/LandAccessControl.sol": {
+      "keccak256": "0x07cea816219e5a9dc678e060e9dcb86d75e0f3357656dfc22829e590ddc48a7f",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://ae6989fb25ff2ef790e627a804d39a21e98e93231bfcaebd88a8a5bce1c252fa",
+        "dweb:/ipfs/QmUMyT5WVGEGK22Q5jZ15aimdZx4zJDjCGU35njqZTn8iJ"
+      ]
+    },
+    "src/land/LandToPlant.sol": {
+      "keccak256": "0xa5a9158cee41cc9bc3c05c760f88e58df7a1436ed5039d48896f9ab9de111d66",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://6b8491a3f1166a72a7c6e85624413efad2fe7c8108a9fbb314224a50ded96691",
+        "dweb:/ipfs/QmQ7jfwNBwCUuHQG7YtWWRRHvTA7Thw9RMZFJiykpJNKFs"
+      ]
+    },
+    "src/land/LandToPlantEvents.sol": {
+      "keccak256": "0xbca5ba9f2ecd71267f061823daad8aa1cb2a3cd24b638eeb90c19d6ebaf8520b",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://ff2ee1c5f4bd09c2a0b4b751b1d0a5225fe765368d5cae1100d24fdbd2f28c33",
+        "dweb:/ipfs/QmamTyM8bbTGrRb5SfN3Ps3yDUv1PJSHApsWxqmvcZhJHB"
+      ]
+    },
+    "src/land/LibLandToPlant.sol": {
+      "keccak256": "0xbed2cc29f12e7097d9b0a7f30938633928f6dfda8d6961a8f4d9706c34341948",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://c55d2810f3d002e963608394d5c8f63f2c1cc6c378a3c860d2ebcb8b19714897",
+        "dweb:/ipfs/QmTQrLSfwT5E66XC5XwKYf6x698piy31ZbomFUNDCVGMMZ"
+      ]
+    }
+  },
+  "version": 1
+}

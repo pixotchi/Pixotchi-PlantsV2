@@ -1,0 +1,757 @@
+{
+  "compiler": {
+    "version": "0.8.28+commit.7893614a"
+  },
+  "language": "Solidity",
+  "output": {
+    "abi": [
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "attacker",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "winner",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "loser",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "scoresWon",
+            "type": "uint256"
+          }
+        ],
+        "name": "Attack",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "nftId",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "deadId",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "loserName",
+            "type": "string"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "reward",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "address",
+            "name": "killer",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "winnerName",
+            "type": "string"
+          }
+        ],
+        "name": "Killed",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "from",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "to",
+            "type": "uint256"
+          }
+        ],
+        "name": "Pass",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "reward",
+            "type": "uint256"
+          }
+        ],
+        "name": "RedeemRewards",
+        "type": "event"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "fromId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "toId",
+            "type": "uint256"
+          }
+        ],
+        "name": "attack",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "getAllStrainInfo",
+        "outputs": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "mintPrice",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalSupply",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalMinted",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "maxSupply",
+                "type": "uint256"
+              },
+              {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "internalType": "bool",
+                "name": "isActive",
+                "type": "bool"
+              },
+              {
+                "internalType": "uint256",
+                "name": "getStrainTotalLeft",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "strainInitialTOD",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct IGame.Strain[]",
+            "name": "",
+            "type": "tuple[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_id",
+            "type": "uint256"
+          }
+        ],
+        "name": "getPlantName",
+        "outputs": [
+          {
+            "internalType": "string",
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "plant",
+            "type": "uint256"
+          }
+        ],
+        "name": "getStatus",
+        "outputs": [
+          {
+            "internalType": "enum IGame.Status",
+            "name": "",
+            "type": "uint8"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "wallet",
+            "type": "address"
+          }
+        ],
+        "name": "isApprovedFn",
+        "outputs": [
+          {
+            "internalType": "bool",
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_nftId",
+            "type": "uint256"
+          }
+        ],
+        "name": "isPlantAlive",
+        "outputs": [
+          {
+            "internalType": "bool",
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_deadId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_tokenId",
+            "type": "uint256"
+          }
+        ],
+        "name": "kill",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+          }
+        ],
+        "name": "level",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "fromId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "toId",
+            "type": "uint256"
+          }
+        ],
+        "name": "onAttack",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "pct",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "odds",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "canAttack",
+            "type": "bool"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "from",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "to",
+            "type": "uint256"
+          }
+        ],
+        "name": "pass",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "plantId",
+            "type": "uint256"
+          }
+        ],
+        "name": "pendingEth",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          }
+        ],
+        "name": "redeem",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "_name",
+            "type": "string"
+          }
+        ],
+        "name": "setPlantName",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "enum IGame.Status",
+            "name": "status",
+            "type": "uint8"
+          }
+        ],
+        "name": "statusToString",
+        "outputs": [
+          {
+            "internalType": "string",
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "stateMutability": "pure",
+        "type": "function"
+      }
+    ],
+    "devdoc": {
+      "details": "Implements the core game logic for the Pixotchi game.",
+      "kind": "dev",
+      "methods": {
+        "attack(uint256,uint256)": {
+          "details": "Allows a plant to attack another plant.",
+          "params": {
+            "fromId": "The ID of the attacking plant.",
+            "toId": "The ID of the plant being attacked."
+          }
+        },
+        "getAllStrainInfo()": {
+          "details": "Gets information about all active strains.",
+          "returns": {
+            "_0": "IGame.Strain[] An array of active strains."
+          }
+        },
+        "getPlantName(uint256)": {
+          "details": "Gets the name of a plant.",
+          "params": {
+            "_id": "The ID of the plant."
+          },
+          "returns": {
+            "_0": "string The name of the plant."
+          }
+        },
+        "getStatus(uint256)": {
+          "details": "Gets the status of a plant.",
+          "params": {
+            "plant": "The ID of the plant."
+          },
+          "returns": {
+            "_0": "Status The status of the plant."
+          }
+        },
+        "isApprovedFn(uint256,address)": {
+          "details": "Checks if the given wallet is approved for the specified plant ID.",
+          "params": {
+            "id": "The ID of the plant.",
+            "wallet": "The address of the wallet."
+          },
+          "returns": {
+            "_0": "bool True if the wallet is approved, false otherwise."
+          }
+        },
+        "isPlantAlive(uint256)": {
+          "details": "Checks if a plant is alive.",
+          "params": {
+            "_nftId": "The ID of the plant."
+          },
+          "returns": {
+            "_0": "bool True if the plant is alive, false otherwise."
+          }
+        },
+        "kill(uint256,uint256)": {
+          "details": "Allows a player to kill a dead plant and claim its points.",
+          "params": {
+            "_deadId": "The ID of the dead plant.",
+            "_tokenId": "The ID of the player's plant."
+          }
+        },
+        "level(uint256)": {
+          "details": "Gets the level of a plant.",
+          "params": {
+            "tokenId": "The ID of the plant."
+          },
+          "returns": {
+            "_0": "uint256 The level of the plant."
+          }
+        },
+        "onAttack(uint256,uint256)": {
+          "details": "Handles an attack between two plants.",
+          "params": {
+            "fromId": "The ID of the attacking plant.",
+            "toId": "The ID of the plant being attacked."
+          },
+          "returns": {
+            "canAttack": "True if the attack can proceed, false otherwise.",
+            "odds": "The odds of winning the attack.",
+            "pct": "The percentage of the prize."
+          }
+        },
+        "pass(uint256,uint256)": {
+          "details": "Allows a player to pass the diamond to another plant.",
+          "params": {
+            "from": "The ID of the plant passing the diamond.",
+            "to": "The ID of the plant receiving the diamond."
+          }
+        },
+        "pendingEth(uint256)": {
+          "details": "Gets the pending ETH rewards for a plant.",
+          "params": {
+            "plantId": "The ID of the plant."
+          },
+          "returns": {
+            "_0": "uint256 The pending ETH rewards."
+          }
+        },
+        "redeem(uint256)": {
+          "details": "Redeems the rewards for a plant.",
+          "params": {
+            "id": "The ID of the plant."
+          }
+        },
+        "setPlantName(uint256,string)": {
+          "details": "Sets the name of a plant.",
+          "params": {
+            "_id": "The ID of the plant.",
+            "_name": "The new name of the plant."
+          }
+        },
+        "statusToString(uint8)": {
+          "details": "Converts a Status enum to a string.",
+          "params": {
+            "status": "The Status enum."
+          },
+          "returns": {
+            "_0": "string The string representation of the status."
+          }
+        }
+      },
+      "title": "GameLogic",
+      "version": 1
+    },
+    "userdoc": {
+      "kind": "user",
+      "methods": {},
+      "version": 1
+    }
+  },
+  "settings": {
+    "compilationTarget": {
+      "src/game/GameLogic.sol": "GameLogic"
+    },
+    "evmVersion": "paris",
+    "libraries": {},
+    "metadata": {
+      "bytecodeHash": "ipfs"
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "remappings": [
+      ":@chainlink/=lib/contracts/lib/chainlink/",
+      ":@ds-test/=lib/contracts/lib/ds-test/src/",
+      ":@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/",
+      ":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+      ":@rari-capital/solmate/=lib/contracts/lib/seaport/lib/solmate/",
+      ":@seaport/=lib/contracts/lib/seaport/contracts/",
+      ":@solady/=lib/contracts/lib/solady/",
+      ":@std/=lib/contracts/lib/forge-std/src/",
+      ":@thirdweb-dev/=node_modules/@thirdweb-dev/",
+      ":@thirdweb-dev/dynamic-contracts/=lib/contracts/lib/dynamic-contracts/",
+      ":ERC721A-Upgradeable/=lib/contracts/lib/ERC721A-Upgradeable/contracts/",
+      ":ERC721A/=lib/contracts/lib/ERC721A/contracts/",
+      ":chainlink/=lib/contracts/lib/chainlink/contracts/",
+      ":contracts/=lib/contracts/contracts/",
+      ":ds-test/=lib/contracts/lib/ds-test/src/",
+      ":dynamic-contracts/=lib/dynamic-contracts/src/",
+      ":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/",
+      ":erc721a-upgradeable/=lib/contracts/lib/ERC721A-Upgradeable/",
+      ":erc721a/=lib/contracts/lib/ERC721A/",
+      ":forge-std/=lib/contracts/lib/forge-std/src/",
+      ":halmos-cheatcodes/=lib/openzeppelin-contracts/lib/halmos-cheatcodes/src/",
+      ":lib/sstore2/=lib/contracts/lib/dynamic-contracts/lib/sstore2/",
+      ":murky/=lib/contracts/lib/murky/src/",
+      ":openzeppelin-contracts-upgradeable/=lib/contracts/lib/openzeppelin-contracts-upgradeable/",
+      ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+      ":openzeppelin/=lib/contracts/lib/openzeppelin-contracts-upgradeable/contracts/",
+      ":seaport-core/=lib/contracts/lib/seaport-core/src/",
+      ":seaport-sol/=lib/contracts/lib/seaport-sol/src/",
+      ":seaport-types/=lib/contracts/lib/seaport-types/src/",
+      ":seaport/=lib/contracts/lib/seaport/",
+      ":solady/=lib/contracts/lib/solady/src/",
+      ":solarray/=lib/contracts/lib/seaport/lib/solarray/src/",
+      ":solmate/=lib/contracts/lib/seaport/lib/solmate/src/",
+      ":sstore2/=lib/dynamic-contracts/lib/sstore2/contracts/"
+    ]
+  },
+  "sources": {
+    "lib/contracts/contracts/eip/interface/IERC721.sol": {
+      "keccak256": "0x00754fd93079350acb6b1d0451320cc4b4252bf7990aa39cde29abb5ca4a60ea",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://c91392521b426c02b342d4ba0f2c5cad2c6074e1be90203c9525751dd23b36bf",
+        "dweb:/ipfs/QmNjjCttJ9A39HMn3FTMqjQN5y7UoQrPUhQ7Nd8Ci7jFZj"
+      ]
+    },
+    "lib/contracts/contracts/eip/interface/IERC721A.sol": {
+      "keccak256": "0xba8dd210c2a35a4e82cfc1e6586a3033fe337e40c23798793d7c8cd31694e0cd",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://368eedd471b0aa41e83c2233aba9939ce25daae28de6b5ab427399ac91140eb8",
+        "dweb:/ipfs/QmeMQTGpAGN4YZV8GPjrZr4zUtQ9Macsaset3FFY5CBVP5"
+      ]
+    },
+    "lib/contracts/contracts/eip/interface/IERC721Metadata.sol": {
+      "keccak256": "0x7f80ade420dd9bf39c4dbca10484b625e2096ee332c22a00e658148f170ee5fb",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://7bcac290ef069b09e887e6c80af6a77c23e935bc271622585f61339779ac485e",
+        "dweb:/ipfs/QmbqzDQ2pCtKrJcD7LJcBDUX6nfmx2YtcTDAhi3noX5rc4"
+      ]
+    },
+    "lib/contracts/contracts/extension/interface/IPermissions.sol": {
+      "keccak256": "0xc0cd1f87bac474a06f85e2b341b9b57662aee957fc24180d42c872481c2f2ae3",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://7dec3eed451d63867531d693f0be3279fa2c9aef3130f0826c3520c06820fa5d",
+        "dweb:/ipfs/QmTYANrcPdd9SCe99DWsKJ19evNRQKQGZeoS1Keew4M2cS"
+      ]
+    },
+    "lib/contracts/contracts/extension/interface/IPermissionsEnumerable.sol": {
+      "keccak256": "0x2e742c18a4481bad41d56424cd16c52def2fb415f69e5fb5f67d8d979300ff95",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://d9be33bb865e3e82aca540a3e38cbc2bf2e431f9d1bf39c50d6c757e7b7bf3ee",
+        "dweb:/ipfs/Qmdad1Xqj5SQ44Bk4bwD2uA36XnGHtqnVYSomKZQvnUBVG"
+      ]
+    },
+    "lib/contracts/contracts/extension/upgradeable/Permissions.sol": {
+      "keccak256": "0xc543a8f28fd99b1c4f313fc74f1549e96a645681e11d50e4de54f6a7a6f1d3e9",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://61b0641aed031275f1cca7fa202adf9535ae2295fcde96544c059f770caf0080",
+        "dweb:/ipfs/QmfQJDmhTgm3qVxN6jN3diZyCKYBXuEYwb247FF1KKwxdL"
+      ]
+    },
+    "lib/contracts/contracts/extension/upgradeable/PermissionsEnumerable.sol": {
+      "keccak256": "0xd69a09eb5078dc85e9fb3e59f578c267e7694f2bc9f995461225b596af93b07f",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://08fa417baf97ef109876f76a0040e28d9c7b9edafb52189352642790f10a335c",
+        "dweb:/ipfs/QmZDMmbLDuG48VUZLvAZnkUuNexyZ3ys1hoqFGn7hvtNyc"
+      ]
+    },
+    "lib/contracts/contracts/extension/upgradeable/ReentrancyGuard.sol": {
+      "keccak256": "0x736596906d22abd0e2d0443298dd1b6d1a002a77329f25b55f3dd3a14a183728",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://a0efbbf4ffca8ec9b9669f1cbee3960dada7da091c52b5b083e76358a5ee5b6b",
+        "dweb:/ipfs/QmaXkMvCeZBQtaG1tpjs9mBQVxKiJSUGEZ6v36iWetvRAR"
+      ]
+    },
+    "lib/contracts/contracts/lib/Strings.sol": {
+      "keccak256": "0xd8fcca4db8f1678a124ae0d3b4da6c29e9737e5ae03f90f18b84261ae4499568",
+      "license": "Apache-2.0",
+      "urls": [
+        "bzz-raw://ed0d23694c31613645904cc5d6f3e08ecd34063aeb5bd23ebc9a8223a67f91fb",
+        "dweb:/ipfs/QmTf9WBdvzU2dDDTqeSn1g85AkXTe8MfN1pdyaVzm15Cdb"
+      ]
+    },
+    "lib/contracts/lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SafeMathUpgradeable.sol": {
+      "keccak256": "0xb1561a6950b1aaa504c8f81b7d46bccfa77ccd10de3eb865cf34b1acd5ad505e",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://9a56cb91629dacd161be24908fbf94315f3f45dd6fee8dad82b27af853cbc4ee",
+        "dweb:/ipfs/QmNfEzdf4NTpxyhzWKAmeDwwSpJ6ZjNizK3GXw3TEuTTgn"
+      ]
+    },
+    "lib/contracts/lib/solady/src/utils/SafeTransferLib.sol": {
+      "keccak256": "0xa2cde6f683e83848ef2939c2cc72a94627e64d2877079522ddee82d4c8c21666",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://768ae374ca043fcae00246186aa558357c5949b527a05cf5001cd40458ab5dd1",
+        "dweb:/ipfs/QmfM3hgxUTrMS21a1Pm3TKHc7mB8rQkCq8DPHGbwGdXPpr"
+      ]
+    },
+    "lib/openzeppelin-contracts/contracts/utils/Context.sol": {
+      "keccak256": "0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://6a708e8a5bdb1011c2c381c9a5cfd8a9a956d7d0a9dc1bd8bcdaf52f76ef2f12",
+        "dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
+      ]
+    },
+    "src/IPixotchi.sol": {
+      "keccak256": "0xc85e83be2129b5363ac46817d796f6ad862f65f06333099dc0bab8cd62133190",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://1a910b9e0093a4018f20186d7c6ddeec3bd934472b607d3f794cf50d5fb1f283",
+        "dweb:/ipfs/QmehGGNg9V5SpBRuFYX54nBeuxe6YX5rhGhTTTHeehTgdM"
+      ]
+    },
+    "src/IToken.sol": {
+      "keccak256": "0x9976d0840482fb0aca480ba1f9ba1295e9a658fcd9c8be965bf0c12a4fcaac3b",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://898fed790e604188091056c4494b5e4b98cdc0e37c694abbcb3a41c3439be0aa",
+        "dweb:/ipfs/QmdmxCeZBwpWLctzVWoaKfZv3bpbR5f2vckwQdYyGHxnFt"
+      ]
+    },
+    "src/game/GameLogic.sol": {
+      "keccak256": "0x4480dcebc47c691408690c01ebd77f2829a8561ee24ffd3ea42e3cea853f2515",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://d1f36df9aff4cd94d1eab8f82f682ed072794f5c72845bccd2244c637d3073cc",
+        "dweb:/ipfs/QmcvPJaZyoUywrJHtP7qjzm1JgSYCiAN8VDrGSk1QAbJyV"
+      ]
+    },
+    "src/game/GameStorage.sol": {
+      "keccak256": "0xdc6cf90232f6ec2c7b3600ca578fe563b638923a87a6031a044452dedbfe9141",
+      "license": "MIT",
+      "urls": [
+        "bzz-raw://352f8e43205f9f03c99781d2d227bd82ffd9a96301abf5e2c1412d5e90cf25f0",
+        "dweb:/ipfs/QmYftcHfNeJNx6bR5gNTfCLCyU5YFKZbR2SfVxfjRrhVFy"
+      ]
+    },
+    "src/utils/FixedPointMathLib.sol": {
+      "keccak256": "0x01c2d92bdd1df4e0ed63062e0d97cb3b0af4fc05e442872af4f199d061732216",
+      "license": "AGPL-3.0-only",
+      "urls": [
+        "bzz-raw://a6fbfabb3503dd8c2cc45e03e4ee50fa23aac24745db4a57f9b13fc82397a30d",
+        "dweb:/ipfs/QmWz8gjApivQn3JxXevb82tctD9ijS6DM4rnx2WMUvtaRZ"
+      ]
+    }
+  },
+  "version": 1
+}

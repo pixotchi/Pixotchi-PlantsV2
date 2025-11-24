@@ -1,0 +1,180 @@
+[
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_level",
+        "type": "uint256"
+      }
+    ],
+    "name": "calculateImageLevel",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_level",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "ipfsHash",
+        "type": "string"
+      }
+    ],
+    "name": "getImageUri",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timeUntilStarving",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "score",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timePlantBorn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lastAttackUsed",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lastAttacked",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "stars",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "strain",
+            "type": "uint256"
+          },
+          {
+            "internalType": "enum IGame.Status",
+            "name": "status",
+            "type": "uint8"
+          },
+          {
+            "internalType": "string",
+            "name": "statusStr",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "level",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "rewards",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "id",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "string",
+                    "name": "name",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "effectUntil",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "effectIsOngoingActive",
+                    "type": "bool"
+                  }
+                ],
+                "internalType": "struct IShop.ShopItemOwned[]",
+                "name": "shopItemOwned",
+                "type": "tuple[]"
+              }
+            ],
+            "internalType": "struct IGameExtensions.PlantExtensions[]",
+            "name": "extensions",
+            "type": "tuple[]"
+          }
+        ],
+        "internalType": "struct IGame.PlantFull",
+        "name": "plant",
+        "type": "tuple"
+      },
+      {
+        "internalType": "string",
+        "name": "ipfsHash",
+        "type": "string"
+      }
+    ],
+    "name": "prepareTokenURI",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  }
+]
